@@ -15,10 +15,10 @@ module.exports = function(sequelize, DataTypes) {
         }
     },
         {
-
-        
+ 
         freezeTableName: true
     });
+
 
 
     Activity.associate = function(models) {

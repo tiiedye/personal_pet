@@ -1,7 +1,6 @@
 {
   "development": {
     "username": "root",
-    "password": "cogsworth",
     "database": "selfcare_sidekick",
     "host": "localhost",
     "dialect": "mysql"
