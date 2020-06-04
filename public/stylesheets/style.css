@@ -1,3 +1,4 @@
+
 body{
   background-color: aquamarine;
   font-family: 'Gochi Hand', cursive
@@ -36,3 +37,20 @@ header {
 
 
 
+form.signup,
+form.login {
+  margin-top: 20px;
+}
+
+.navbar {
+  background-color: #440a31;
+}
+
+h1 {
+  color: white;
+  text-align: center;
+}
+
+.homePage {
+  text-align: center;
+}

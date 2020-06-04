@@ -17,6 +17,15 @@ module.exports = function(sequelize, DataTypes) {
     freezeTableName: true
 
     });
+
+    Sidekick.associate = function(models) {
+        Sidekick.belongsTo(models.User, {
+            foreignKey: {
+                allowNull: false
+            }
+        });
+    };
+
     return Sidekick;
 }
 
