@@ -1,0 +1,39 @@
+<nav class="navbar">
+    <h1 class="header">
+        Self-Care Sidekick
+    </h1>
+</nav>
+
+<div class="card">
+  <div class="card-body">
+        <p>
+            {{sidekickName}}
+        </p>
+
+        <div class="row">
+            <div class="col-md-4">
+                {{!-- might need to do an empty div here for the sidekick image, and do an if/else in script that displays correct icon --}}
+                {{sidekickImage}}
+                <p>
+                    {{> status}}
+                </p>
+
+                <p>
+                    <button class="btn">Add Task</button>
+                    <br>
+                    <button class="btn">See History</button>
+                    <br>
+                    {{> sleep-wake sleep=false}}
+                </p>
+            </div>
+
+            <div class="col-md-8">
+                <ul>
+                    {{#each task}}
+                        {{> activites}}
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+  </div>
+</div>
