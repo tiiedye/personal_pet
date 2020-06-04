@@ -11,10 +11,12 @@ module.exports = function(sequelize, DataTypes) {
         category: {
             type: DataTypes.STRING,
             allowNull: false
-        },
-    
-        freezeTableName: true
-    });
+        }
+    },
+        {
+            freezeTableName: true
+        }
+    );
 
     Activity.associate = function(models) {
         Activity.belongsTo(models.User, {
