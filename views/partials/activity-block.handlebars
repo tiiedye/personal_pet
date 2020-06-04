@@ -1,0 +1,10 @@
+<li>
+    {{#if category=personal-grooming}}<img src="/assets/Shampoo.png" alt="grooming" width="50px">{{/if}}
+    {{#if category=food}}<img src="/assets/Bowl.png" alt="food" width="100px">{{/if}}
+    {{#if category=exercise}}<img src="/assets/Ball.png" alt="exercise" width="50px">{{/if}}
+    {{#if category=cleaning}}<img src="/assets/Shovel.png" alt="cleaning" width="50px">{{/if}}
+    {{activityName}}
+    <button class="complete" data-id="{{id}}" data-category="{{category}}">Complete</button>
+	<button data-update="{{id}}" data-category="{{category}}" class="update-activity">Update</button>
+    <button data-delete="{{id}}" class="delete-activity">Delete</button>
+</li>
