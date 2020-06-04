@@ -1,4 +1,17 @@
 form.signup,
 form.login {
-  margin-top: 50px;
+  margin-top: 20px;
+}
+
+.navbar {
+  background-color: #440a31;
+}
+
+h1 {
+  color: white;
+  text-align: center;
+}
+
+.homePage {
+  text-align: center;
 }
