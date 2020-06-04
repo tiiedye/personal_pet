@@ -2,40 +2,48 @@
 <html lang="en">
 
 <head>
-  <title>Passport Authentication</title>
+  <title>Selfcare sidekick</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
   <link href="stylesheets/style.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-      </div>
-    </div>
-  </nav>
-  <div class="container">
+  <nav class="navbar">
+    <h1>
+        Self-Care Sidekick
+    </h1>
+</nav>
+
+<div class="container homePage">
+    <img src="../public/assets/HomePage.jpg" width="700px">
+    <br>
+
     <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <h2>Login Form</h2>
-        <form class="login">
-          <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="email-input" placeholder="Email">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="password-input" placeholder="Password">
-          </div>
-          <button type="submit" class="btn btn-default">Login</button>
-        </form>
-        <br />
-        <p>Or sign up <a href="/">here</a></p>
+      <form class="login">
+        <div class="col-md-5">
+          <input type="email" class="form-control" id="email-input" placeholder="Email">
       </div>
+      <div class="col-md-5">
+          <input type="password" class="form-control" id="password-input" placeholder="Password">
+      </div>
+      <div class="col-md-2">
+          <button type="submit" class="btn">Login</button>
+      </div>
+      </form>
     </div>
-  </div>
+
+    <p>
+        <a href="#">Or Create an Account</a>
+    </p>
+
+</div>
+
+<footer class="footer">
+    Contributors and Credits: <a href="#">Links here</a> || <a href="#">Links here</a> || <a href="#">Links here</a> || <a href="#">Links here</a> || <a href="#">Links here</a>
+</footer>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="js/login.js"></script>
