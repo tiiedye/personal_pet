@@ -1,4 +1,4 @@
-module.exports = function(sequelize, DataType) {
+module.exports = function(sequelize, DataTypes) {
     var Activity = sequelize.define("Activity", {
         activityName: {
             type: DataTypes.STRING,
@@ -15,5 +15,13 @@ module.exports = function(sequelize, DataType) {
     
         freezeTableName: true
     });
+
+    Activity.associate = function(models) {
+        Activity.belongsTo(models.User, {
+            foreignKey: {
+                allowNull: false
+            }
+        });
+    };
     return Activity;
 }
