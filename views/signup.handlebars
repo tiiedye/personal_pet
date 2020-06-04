@@ -20,16 +20,17 @@
                 {{!-- Choose Character/Avatar --}}
                 <p>Choose a Sidekick:</p>
                 <div class="row">
-                    <div class="col-md-6 pet1">
-                        <img src="../public/assets/Cat-Neutral.png" alt="Cat" width="250px">
+                    <div class="col-md-6 choose-cat">
+                        <img src="/assets/Cat-Neutral.png" alt="Cat" width="250px" id="cat"
+                            data-catdog="{{sidekickImage}}">
                     </div>
-                    <div class="col-md-6 pet2">
-                        <img src="../public/assets/Dog-Neutral.png" alt="Dog" width="250px">
+                    <div class="col-md-6 choose-dog">
+                        <img src="/assets/Dog-Neutral.png" alt="Dog" width="250px" id="dog"
+                            data-catdog="{{sidekickImage}}">
                     </div>
                 </div>
-                <div class="form-group">
-                    <input type="text" class="form-control" id="name-input" placeholder="SidekickName">
-                </div>
+                <input type="text" class="form-control" id="name-input" placeholder="SidekickName">
+                <br>
                 <button type="submit" class="btn btn-default">Sign Up</button>
             </form>
 
@@ -40,5 +41,50 @@
 </div>
 
 <footer class="footer">
-    Contributors and Credits: <a href="#">Links here</a> || <a href="#">Links here</a> || <a href="#">Links here</a> || <a href="#">Links here</a> || <a href="#">Links here</a>
+    Contributors and Credits: <a href="#">Links here</a> || <a href="#">Links here</a> || <a href="#">Links here</a> ||
+    <a href="#">Links here</a> || <a href="#">Links here</a>
 </footer>
+
+
+{{!-- data attributes, independent on-click event, set global variable = to data attribute $(this).data-attribute
+if dog clicked, set value and add after submit --}}
+{{!-- sidekickImage = url imgsrc --}}
+<script>
+    $(document).ready(function () {
+        const signupForm = $(".signup");
+        const emailInput = $("input#email-input");
+        const passwordInput = $("input#password-input");
+        const sidekick = $("input#sidekickname-input");
+
+        const cat = $("#cat");
+        const dog = $("#dog");
+
+        signupForm.on("submit", event => {
+            event.preventDefault();
+            const userData = {
+                email: emailInput.val().trim(),
+                password: passwordInput.val().trim()
+            };
+
+            if (!userData.email || !userData.password) {
+                alert("Please enter a valid username and password.")
+                return;
+            }
+
+            createUser(userData.email, userData.password);
+            emailInput.val("");
+            passwordInput.val("");
+        });
+        
+        function createUser(email, password) {
+        $.post("/api/user_data", {
+            email: email,
+            password: password
+        }).then(
+                function () {
+                    console.log("new user added: " + userData);
+                    location.reload();
+                })
+        }
+    });
+</script>
