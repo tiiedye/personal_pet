@@ -1,4 +1,56 @@
+
+body{
+  background-color: aquamarine;
+  font-family: 'Gochi Hand', cursive
+
+}
+
+.btn{
+  
+  width: 100%;
+}
+
+
+.email,
+.password{
+
+  color: beige;
+
+}
+
+
+.signup,
+.login {
+  padding: 20px;
+  margin-top: 50px;
+  background-color: blueviolet;
+  
+  
+}
+
+header {
+  
+  background-color: cyan;
+  text-align: center;
+  
+}
+
+
+
 form.signup,
 form.login {
-  margin-top: 50px;
+  margin-top: 20px;
+}
+
+.navbar {
+  background-color: #440a31;
+}
+
+h1 {
+  color: white;
+  text-align: center;
+}
+
+.homePage {
+  text-align: center;
 }
