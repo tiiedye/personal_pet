@@ -10,11 +10,17 @@ module.exports = function(sequelize, DataTypes) {
             defaultValue: 0,
             allowNull: false
         },
-        sidekickImage: DataTypes.STRING
+        sidekickImage: {
+            type:DataTypes.STRING,
+            allowNull: false
+        } 
     },
-    {
+        
+        
+        {
 
-    freezeTableName: true
+        freezeTableName: true
+        
 
     });
 

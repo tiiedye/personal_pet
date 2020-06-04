@@ -8,13 +8,18 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.INTEGER,
             allowNull: false
         },
+        // freezeTableName: true,
         category: {
             type: DataTypes.STRING,
             allowNull: false
-        },
-    
+        }
+    },
+        {
+
+        
         freezeTableName: true
     });
+
 
     Activity.associate = function(models) {
         Activity.belongsTo(models.User, {
