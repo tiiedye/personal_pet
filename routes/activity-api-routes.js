@@ -5,7 +5,7 @@ module.exports = function(app) {
         db.User.findAll({
             include: [db.Activity]
         }).then(function(activityGetResult) {
-            res.json(activityResult)
+            res.json(activityGetResult)
         })
     })
 

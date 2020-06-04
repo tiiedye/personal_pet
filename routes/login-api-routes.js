@@ -14,7 +14,7 @@ module.exports = function(app) {
     });
   });
 
-  app.get("api/users", function(req, res) {
+  app.get("/api/users", function(req, res) {
     db.User.findAll({}).then(function(result) {
       return res.json(result);
     })
