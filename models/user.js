@@ -26,7 +26,7 @@ module.exports = function(sequelize, DataTypes) {
   };
 
   User.associate = function(models) {
-    User.hasOne(models.Sidekick, {
+    User.hasMany(models.Sidekick, {
       onDelete: "cascade"
     })
   }
