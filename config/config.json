@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "database": "selfcare_sidekick",
-    "host": "127.0.0.1",
+    "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
