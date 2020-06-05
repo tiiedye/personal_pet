@@ -19,10 +19,10 @@
     "express": "^4.17.1",
     "express-handlebars": "^4.0.4",
     "express-session": "^1.16.1",
-    "mysql2": "^1.6.5",
+    "mysql2": "^1.7.0",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
-    "sequelize": "^5.8.6"
+    "sequelize": "^5.21.12"
   },
   "devDependencies": {
     "chai": "^4.1.2",
@@ -33,5 +33,13 @@
     "eslint-plugin-prettier": "^2.6.2",
     "mocha": "^5.2.0",
     "prettier": "^1.13.7"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sharlenemay/personal_pet.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sharlenemay/personal_pet/issues"
+  },
+  "homepage": "https://github.com/sharlenemay/personal_pet#readme"
 }
