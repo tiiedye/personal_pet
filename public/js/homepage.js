@@ -38,11 +38,6 @@ $("#switchuser").on("click", function(){
     
 })
 
-$("#savenewtask").on("click", function(){
-
-    
-})
-
 $("#readytostartyes").on("click", function(){
 
     
