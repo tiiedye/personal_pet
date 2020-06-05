@@ -1,42 +1,62 @@
-$(document).ready(() => {
-  // Getting references to our form and input
-  const signUpForm = $("form.signup");
-  const emailInput = $("input#email-input");
-  const passwordInput = $("input#password-input");
+$(document).ready(function () {
+  const signupForm = $(".signup");
+  const emailInput = $("#email-input");
+  const passwordInput = $("#password-input");
+  const sidekick = $("#name-input");
+ 
+ 
+  var users =[];
+  var indexNum;
 
-  // When the signup button is clicked, we validate the email and password are not blank
-  signUpForm.on("submit", event => {
-    event.preventDefault();
-    const userData = {
-      email: emailInput.val().trim(),
-      password: passwordInput.val().trim()
-    };
 
-    if (!userData.email || !userData.password) {
-      return;
-    }
-    // If we have an email and password, run the signUpUser function
-    signUpUser(userData.email, userData.password);
-    emailInput.val("");
-    passwordInput.val("");
+  signupForm.on("submit", event => {
+      event.preventDefault();
+      let sidekickImage = $('input[name="Choice"]:checked').val();
+
+
+      const sidekickData = {
+          name: sidekick.val().trim(),
+          image: sidekickImage
+      }   
+
+      const userData = {
+          email: emailInput.val().trim(),
+          password: passwordInput.val().trim()
+      };
+
+      if (!userData.email || !userData.password) {
+          alert("Please enter a valid username and password.")
+          return;
+      }
+
+      
+     
+      createUserandSidekick(userData.email, userData.password, sidekickData.name, sidekickData.image);
+      emailInput.val("");
+      passwordInput.val("");
+      sidekick.val("");
+      alert("Welcome " + sidekickData.name + ". Please log in to continue.")
   });
 
-  // Does a post to the signup route. If successful, we are redirected to the members page
-  // Otherwise we log any errors
-  function signUpUser(email, password) {
-    $.post("/api/signup", {
-      email: email,
-      password: password
-    })
-      .then(() => {
-        window.location.replace("/members");
-        // If there's an error, handle it by throwing up a bootstrap alert
-      })
-      .catch(handleLoginErr);
+
+  async function createUserandSidekick(email, password, name, image) {
+      await $.post("/api/signup", {
+          email: email,
+          password: password
+      }).then(function () {
+              console.log("new user added");
+          });  
+      await $.get("/api/users", function(data) {
+          users = data;
+          indexNum = (users.length - 1)
+      });
+      $.post("/api/sidekick", {
+          sidekickName: name,
+          sidekickImage: image,
+          UserId: users[indexNum].id
+      }).then(function () {
+                  console.log("added sidekick");
+          });
   }
 
-  function handleLoginErr(err) {
-    $("#alert .msg").text(err.responseJSON);
-    $("#alert").fadeIn(500);
-  }
 });
