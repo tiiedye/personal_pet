@@ -25,7 +25,7 @@ module.exports = function(app) {
         })
     })
 
-    app.put("/api/posts/:id", function(req, res) {
+    app.put("/api/activity/:id", function(req, res) {
         db.Activity.update({
             where: {
                 id: req.params.id

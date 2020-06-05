@@ -20,13 +20,22 @@
                 {{!-- Choose Character/Avatar --}}
                 <p>Choose a Sidekick:</p>
                 <div class="row">
-                    <div class="col-md-6 choose-cat">
+                    <div class="col-md-6 choose-cat form-check">
+                        <label>
+                        <input class = "form-check-input" type = "radio" name = "Choice" id = "catChoiceId" value = "option1">
+                        {{!-- <label class="form-check-label" for = "catChoiceId"> --}}
                         <img src="/assets/Cat-Neutral.png" alt="Cat" width="250px" id="cat"
                             data-catdog="{{sidekickImage}}">
+                        </label>
                     </div>
-                    <div class="col-md-6 choose-dog">
-                        <img src="/assets/Dog-Neutral.png" alt="Dog" width="250px" id="dog"
+
+                    <div class="col-md-6 choose-dog form-check">
+                        <label>
+                       <input class = "form-check-input" type = "radio" name = "Choice" id = "dogChoiceId" value = "option2">
+                        {{!-- <label class="form-check-label" for = "dogChoiceId"> --}}
+                           <img src="/assets/Dog-Neutral.png" alt="Dog" width="250px" id="dog"
                             data-catdog="{{sidekickImage}}">
+                        </label>
                     </div>
                 </div>
                 <input type="text" class="form-control" id="name-input" placeholder="SidekickName">
@@ -59,8 +68,38 @@ if dog clicked, set value and add after submit --}}
         const cat = $("#cat");
         const dog = $("#dog");
 
+        var isCat;
+        var sidekickImage = "";
+
+        console.log("party");
+
+        $("catBtn").on("click",event => {
+            isCat = true;
+            console.log("cat")
+        });
+
+        $("dogBtn").on("click",event => {
+            isCat = false;
+            console.log("dog");
+        });
+
+
         signupForm.on("submit", event => {
             event.preventDefault();
+            if (isCat === true) {
+                sidekickImage = "/assets/Cat-Neutral.png"
+                console.log(isCat)
+            }
+            else if (isCat === false) {
+                sidekickImage = "/assets/Dog-Neutral.png"
+                console.log(isCat)
+            }
+
+            const sidekickData = {
+                name: sidekick.val().trim(),
+                image: sidekickImage
+            }   
+
             const userData = {
                 email: emailInput.val().trim(),
                 password: passwordInput.val().trim()
@@ -71,20 +110,34 @@ if dog clicked, set value and add after submit --}}
                 return;
             }
 
+            createSidekick(sidekickData.name, sidekickData.image);
             createUser(userData.email, userData.password);
             emailInput.val("");
             passwordInput.val("");
+            sidekick.val("");
         });
+
+
         
         function createUser(email, password) {
-        $.post("/api/user_data", {
+        $.post("/api/signup", {
             email: email,
             password: password
         }).then(
                 function () {
                     console.log("new user added: " + userData);
-                    location.reload();
                 })
+        }
+
+        function createSidekick(name, image) {
+            $.post("/api/sidekick", {
+                sidekickName: name,
+                sidekickImage: image
+            }).then(
+                    function () {
+                        console.log("added sidekick: " + sidekickData);
+                    }
+            )
         }
     });
 </script>
