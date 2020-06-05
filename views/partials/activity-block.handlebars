@@ -5,13 +5,23 @@
     {{#if category=cleaning}}<img src="/assets/Shovel.png" alt="cleaning" width="50px">{{/if}}
     {{activityName}}
     <button class="complete" data-id="{{id}}" data-category="{{category}}">Complete</button>
-	<button data-update="{{id}}" data-category="{{category}}" class="update-activity">Update</button>
-    <button data-delete="{{id}}" class="delete-activity">Delete</button>
+	<button data-updatetask="{{id}}" data-category="{{category}}" class="update-activity">Update</button>
+    <button data-deletetask="{{id}}" class="delete-activity">Delete</button>
 </li>
 
 <script>
     $(document).ready(function () {
         
-        
+        $(".delete-activity").on("click", function (event) {
+            event.preventDefault();
+            let taskid = $(this).data("deletetask");
+
+            $.delete("/api/activity/" + taskid)
+            .then(function() {
+                console.log("deleted activity id: " + taskid);
+                location.reload();
+            });
+        });
     });
+
 </script>
