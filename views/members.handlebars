@@ -7,17 +7,20 @@
 <div class="card">
   <div class="card-body">
         <p>
-            {{sidekickName}}
+            {{Sidekicks.sidekickName}}
         </p>
 
         <div class="row">
             <div class="col-md-4">
-                {{!-- might need to do an empty div here for the sidekick image, and do an if/else in script that displays correct icon --}}
-                {{sidekickImage}}
+                {{!-- imgDiv to hold sidekick img --}}
+                <div class="imgDiv"></div>
+
+                {{!-- happinessPoints progress bar --}}
                 <p>
                     {{> status}}
                 </p>
 
+                {{!-- buttons to bring up modals --}}
                 <p>
                     <button class="btn">Add Task</button>
                     <br>
@@ -27,13 +30,42 @@
                 </p>
             </div>
 
+            {{!-- Div to hold added activities --}}
             <div class="col-md-8">
-                <ul>
-                    {{#each task}}
-                        {{> activites}}
-                    {{/each}}
-                </ul>
+                {{#each Activity}}
+                    {{> activity-block}}
+                {{/each}}
             </div>
         </div>
   </div>
 </div>
+
+<script>
+    function updateImg {
+        if (Sidekicks.type === "dog") {
+            if (Sidekicks.happinessPoints < 30) {
+                $(".imgDiv").empty();
+                $(".imgDiv").html("<img src='assets/Dog-Alert.png'>");
+            } else if (Sidekicks.happinessPoints > 60) {
+                $(".imgDiv").empty();
+                $(".imgDiv").html("<img src='assets/Dog-Happy.png'>");
+            } else {
+                $(".imgDiv").empty();
+                $(".imgDiv").html("<img src='assets/Dog-Neutral.png'>");
+            }
+        } else if (Sidekicks.type === "cat") {
+            if (Sidekicks.happinessPoints < 30) {
+                $(".imgDiv").empty();
+                $(".imgDiv").html("<img src='assets/Cat-Alert.png'>");
+            } else if (Sidekicks.happinessPoints > 60) {
+                $(".imgDiv").empty();
+                $(".imgDiv").html("<img src='assets/Cat-Happy.png'>");
+            } else {
+                $(".imgDiv").empty();
+                $(".imgDiv").html("<img src='assets/Cat-Neutral.png'>");
+            }
+        }
+    }
+
+    updateImg();
+</script>
