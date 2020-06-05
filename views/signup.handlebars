@@ -62,11 +62,11 @@ if dog clicked, set value and add after submit --}}
         const emailInput = $("#email-input");
         const passwordInput = $("#password-input");
         const sidekick = $("#name-input");
-        const imageChoice = $(".choice:checked")
        
-
        
-        var sidekickImage = "";
+        var users =[];
+        var indexNum;
+       
 
         console.log("party"); 
         console.log(sidekick);
@@ -74,8 +74,8 @@ if dog clicked, set value and add after submit --}}
 
         signupForm.on("submit", event => {
             event.preventDefault();
-            let help = $('input[name="Choice"]:checked').val();
-            console.log(help);
+            let sidekickImage = $('input[name="Choice"]:checked').val();
+        
         
             console.log("hi");
 
@@ -95,8 +95,9 @@ if dog clicked, set value and add after submit --}}
                 return;
             }
 
-            createSidekick(sidekickData.name, sidekickData.image, sidekickData);
-            createUser(userData.email, userData.password, userData);
+            
+           
+            createSidekick(userData.email, userData.password, userData, sidekickData.name, sidekickData.image, sidekickData);
             emailInput.val("");
             passwordInput.val("");
             sidekick.val("");
@@ -105,21 +106,36 @@ if dog clicked, set value and add after submit --}}
 
         
         function createUser(email, password, userData) {
-        $.post("/api/signup", {
-            email: email,
-            password: password
-        }).then(
-                function () {
+            $.post("/api/signup", {
+                email: userData.email,
+                password: password
+            }).then(function () {
                     console.log("new user added: " + userData);
-                })
+                });    
+                 
         }
 
-        function createSidekick(name, image, sidekickData) {
-            console.log("working?");
+        async function createSidekick(email, password, userData, name, image, sidekickData) {
+            await $.post("/api/signup", {
+                email: userData.email,
+                password: password
+            }).then(function () {
+                    console.log("new user added");
+                });  
+            await $.get("/api/users", function(data) {
+                users = data;
+                console.log(users)
+                indexNum = (users.length - 1)
+                console.log("This is index num " + indexNum)
+            });
+            for (i = 0; i < users.length; i++) {
+                console.log(users[i].id)
+            }
+            console.log("This should be second?");
             $.post("/api/sidekick", {
                 sidekickName: name,
                 sidekickImage: image,
-                UserId: 3
+                UserId: users[indexNum].id
             }).then(
                     function () {
                         console.log("added sidekick: " + sidekickData);
