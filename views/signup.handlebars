@@ -22,8 +22,7 @@
                 <div class="row">
                     <div class="col-md-6 choose-cat form-check">
                         <label>
-                        <input class = "form-check-input" type = "radio" name = "Choice" id = "catChoiceId" value = "option1">
-                        {{!-- <label class="form-check-label" for = "catChoiceId"> --}}
+                        <input class = "form-check-input" type = "radio" name = "Choice" id = "catChoiceId" value = "/assets/Cat-Neutral.png">
                         <img src="/assets/Cat-Neutral.png" alt="Cat" width="250px" id="cat"
                             data-catdog="{{sidekickImage}}">
                         </label>
@@ -31,8 +30,7 @@
 
                     <div class="col-md-6 choose-dog form-check">
                         <label>
-                       <input class = "form-check-input" type = "radio" name = "Choice" id = "dogChoiceId" value = "option2">
-                        {{!-- <label class="form-check-label" for = "dogChoiceId"> --}}
+                       <input class = "form-check-input" type = "radio" name = "Choice" id = "dogChoiceId" value = "/assets/Dog-Neutral.png">
                            <img src="/assets/Dog-Neutral.png" alt="Dog" width="250px" id="dog"
                             data-catdog="{{sidekickImage}}">
                         </label>
@@ -61,39 +59,26 @@ if dog clicked, set value and add after submit --}}
 <script>
     $(document).ready(function () {
         const signupForm = $(".signup");
-        const emailInput = $("input#email-input");
-        const passwordInput = $("input#password-input");
-        const sidekick = $("input#sidekickname-input");
+        const emailInput = $("#email-input");
+        const passwordInput = $("#password-input");
+        const sidekick = $("#name-input");
+        const imageChoice = $(".choice:checked")
+       
 
-        const cat = $("#cat");
-        const dog = $("#dog");
-
-        var isCat;
+       
         var sidekickImage = "";
 
-        console.log("party");
-
-        $("catBtn").on("click",event => {
-            isCat = true;
-            console.log("cat")
-        });
-
-        $("dogBtn").on("click",event => {
-            isCat = false;
-            console.log("dog");
-        });
+        console.log("party"); 
+        console.log(sidekick);
 
 
         signupForm.on("submit", event => {
             event.preventDefault();
-            if (isCat === true) {
-                sidekickImage = "/assets/Cat-Neutral.png"
-                console.log(isCat)
-            }
-            else if (isCat === false) {
-                sidekickImage = "/assets/Dog-Neutral.png"
-                console.log(isCat)
-            }
+            let help = $('input[name="Choice"]:checked').val();
+            console.log(help);
+        
+            console.log("hi");
+
 
             const sidekickData = {
                 name: sidekick.val().trim(),
@@ -110,8 +95,8 @@ if dog clicked, set value and add after submit --}}
                 return;
             }
 
-            createSidekick(sidekickData.name, sidekickData.image);
-            createUser(userData.email, userData.password);
+            createSidekick(sidekickData.name, sidekickData.image, sidekickData);
+            createUser(userData.email, userData.password, userData);
             emailInput.val("");
             passwordInput.val("");
             sidekick.val("");
@@ -119,7 +104,7 @@ if dog clicked, set value and add after submit --}}
 
 
         
-        function createUser(email, password) {
+        function createUser(email, password, userData) {
         $.post("/api/signup", {
             email: email,
             password: password
@@ -129,10 +114,12 @@ if dog clicked, set value and add after submit --}}
                 })
         }
 
-        function createSidekick(name, image) {
+        function createSidekick(name, image, sidekickData) {
+            console.log("working?");
             $.post("/api/sidekick", {
                 sidekickName: name,
-                sidekickImage: image
+                sidekickImage: image,
+                UserId: 3
             }).then(
                     function () {
                         console.log("added sidekick: " + sidekickData);
