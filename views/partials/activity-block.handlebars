@@ -11,7 +11,18 @@
 
 <script>
     $(document).ready(function () {
-        
+
+        function getAuthors() {
+            $.get("/api/authors", function (data) {
+                var rowsToAdd = [];
+                for (var i = 0; i < data.length; i++) {
+                    rowsToAdd.push(createAuthorRow(data[i]));
+                }
+                renderAuthorList(rowsToAdd);
+                nameInput.val("");
+            });
+        }
+
         $(".delete-activity").on("click", function (event) {
             event.preventDefault();
             let taskid = $(this).data("deletetask");
