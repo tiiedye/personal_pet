@@ -22,7 +22,7 @@
                 <div class="row">
                     <div class="col-md-6 choose-cat form-check">
                         <label>
-                        <input class = "form-check-input" type = "radio" name = "Choice" id = "catChoiceId" value = "cat">
+                        <input class = "form-check-input" type = "radio" name = "Choice" id = "catChoiceId" value = "/assets/Cat-Neutral.png">
                         <img src="/assets/Cat-Neutral.png" alt="Cat" width="250px" id="cat"
                             data-catdog="{{sidekickImage}}">
                         </label>
@@ -30,7 +30,7 @@
 
                     <div class="col-md-6 choose-dog form-check">
                         <label>
-                       <input class = "form-check-input" type = "radio" name = "Choice" id = "dogChoiceId" value = "dog">
+                       <input class = "form-check-input" type = "radio" name = "Choice" id = "dogChoiceId" value = "/assets/Dog-Neutral.png">
                            <img src="/assets/Dog-Neutral.png" alt="Dog" width="250px" id="dog"
                             data-catdog="{{sidekickImage}}">
                         </label>
@@ -53,9 +53,95 @@
 </footer>
 
 
-
-
 {{!-- data attributes, independent on-click event, set global variable = to data attribute $(this).data-attribute
 if dog clicked, set value and add after submit --}}
-{{!-- sidekickImage = url imgsrc--}}
+{{!-- sidekickImage = url imgsrc --}}
+<script>
+    $(document).ready(function () {
+        const signupForm = $(".signup");
+        const emailInput = $("#email-input");
+        const passwordInput = $("#password-input");
+        const sidekick = $("#name-input");
+       
+       
+        var users =[];
+        var indexNum;
+       
 
+        console.log("party"); 
+        console.log(sidekick);
+
+
+        signupForm.on("submit", event => {
+            event.preventDefault();
+            let sidekickImage = $('input[name="Choice"]:checked').val();
+        
+        
+            console.log("hi");
+
+
+            const sidekickData = {
+                name: sidekick.val().trim(),
+                image: sidekickImage
+            }   
+
+            const userData = {
+                email: emailInput.val().trim(),
+                password: passwordInput.val().trim()
+            };
+
+            if (!userData.email || !userData.password) {
+                alert("Please enter a valid username and password.")
+                return;
+            }
+
+            
+           
+            createSidekick(userData.email, userData.password, userData, sidekickData.name, sidekickData.image, sidekickData);
+            emailInput.val("");
+            passwordInput.val("");
+            sidekick.val("");
+            alert("Welcome " + sidekickData.name + ". Please log in to continue.")
+        });
+
+
+        
+        function createUser(email, password, userData) {
+            $.post("/api/signup", {
+                email: userData.email,
+                password: password
+            }).then(function () {
+                    console.log("new user added: " + userData);
+                });    
+                 
+        }
+
+        async function createSidekick(email, password, userData, name, image, sidekickData) {
+            await $.post("/api/signup", {
+                email: userData.email,
+                password: password
+            }).then(function () {
+                    console.log("new user added");
+                });  
+            await $.get("/api/users", function(data) {
+                users = data;
+                console.log(users)
+                indexNum = (users.length - 1)
+                console.log("This is index num " + indexNum)
+            });
+            for (i = 0; i < users.length; i++) {
+                console.log(users[i].id)
+            }
+            console.log("This should be second?");
+            $.post("/api/sidekick", {
+                sidekickName: name,
+                sidekickImage: image,
+                UserId: users[indexNum].id
+            }).then(
+                    function () {
+                        console.log("added sidekick: " + sidekickData);
+                    }
+            )
+        }
+    });
+</script>

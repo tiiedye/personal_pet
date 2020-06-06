@@ -6,20 +6,21 @@
 
 <div class="card">
   <div class="card-body">
-        <p>
-            {{sidekickName}}
-        </p>
+        <p class="sidekickName"></p>
 
         <div class="row">
             <div class="col-md-4">
-                {{!-- might need to do an empty div here for the sidekick image, and do an if/else in script that displays correct icon --}}
-                {{sidekickImage}}
+                {{!-- imgDiv to hold sidekick img --}}
+                <div class="imgDiv"></div>
+
+                {{!-- happinessPoints progress bar --}}
                 <p>
                     {{> status}}
                 </p>
 
+                {{!-- buttons to bring up modals --}}
                 <p>
-                    <button class="btn">Add Task</button>
+                    <button class="btn addtask">Add Task</button>
                     <br>
                     <button class="btn">See History</button>
                     <br>
@@ -27,13 +28,15 @@
                 </p>
             </div>
 
+            {{!-- Div to hold added activities --}}
             <div class="col-md-8">
-                <ul>
-                    {{#each task}}
-                        {{> activites}}
-                    {{/each}}
-                </ul>
+                {{#each Activity}}
+                    {{> activity-block}}
+                {{/each}}
             </div>
         </div>
   </div>
 </div>
+
+<script src="/js/members.js"></script>
+<script src="/js/homepage.js"></script>
