@@ -56,6 +56,7 @@ $(document).ready(function () {
           UserId: users[indexNum].id
       }).then(function () {
                   console.log("added sidekick");
+                  window.location.replace("/members");
           });
   }
 

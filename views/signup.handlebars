@@ -53,95 +53,10 @@
 </footer>
 
 
-{{!-- data attributes, independent on-click event, set global variable = to data attribute $(this).data-attribute
-if dog clicked, set value and add after submit --}}
-{{!-- sidekickImage = url imgsrc --}}
-<script>
-    $(document).ready(function () {
-        const signupForm = $(".signup");
-        const emailInput = $("#email-input");
-        const passwordInput = $("#password-input");
-        const sidekick = $("#name-input");
-       
-       
-        var users =[];
-        var indexNum;
-       
-
-        console.log("party"); 
-        console.log(sidekick);
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+		<script src="/js/signup.js"></script>
 
 
-        signupForm.on("submit", event => {
-            event.preventDefault();
-            let sidekickImage = $('input[name="Choice"]:checked').val();
-        
-        
-            console.log("hi");
-
-
-            const sidekickData = {
-                name: sidekick.val().trim(),
-                image: sidekickImage
-            }   
-
-            const userData = {
-                email: emailInput.val().trim(),
-                password: passwordInput.val().trim()
-            };
-
-            if (!userData.email || !userData.password) {
-                alert("Please enter a valid username and password.")
-                return;
-            }
-
-            
-           
-            createSidekick(userData.email, userData.password, userData, sidekickData.name, sidekickData.image, sidekickData);
-            emailInput.val("");
-            passwordInput.val("");
-            sidekick.val("");
-            alert("Welcome " + sidekickData.name + ". Please log in to continue.")
-        });
-
-
-        
-        function createUser(email, password, userData) {
-            $.post("/api/signup", {
-                email: userData.email,
-                password: password
-            }).then(function () {
-                    console.log("new user added: " + userData);
-                });    
-                 
-        }
-
-        async function createSidekick(email, password, userData, name, image, sidekickData) {
-            await $.post("/api/signup", {
-                email: userData.email,
-                password: password
-            }).then(function () {
-                    console.log("new user added");
-                });  
-            await $.get("/api/users", function(data) {
-                users = data;
-                console.log(users)
-                indexNum = (users.length - 1)
-                console.log("This is index num " + indexNum)
-            });
-            for (i = 0; i < users.length; i++) {
-                console.log(users[i].id)
-            }
-            console.log("This should be second?");
-            $.post("/api/sidekick", {
-                sidekickName: name,
-                sidekickImage: image,
-                UserId: users[indexNum].id
-            }).then(
-                    function () {
-                        console.log("added sidekick: " + sidekickData);
-                    }
-            )
-        }
-    });
-</script>
