@@ -1,14 +1,14 @@
 $('#addtask').on('click', function(ev) {
-    $('#myModal').modal('show'); 
+    // $('#myModal').modal('show'); 
 
-    let data = $(this).serializeObject();
-    json_data = JSON.stringify(data);
-    $("#results").text(json_data); 
-    $(".modal-body").text(json_data); 
+    // let data = $(this).serializeObject();
+    // json_data = JSON.stringify(data);
+    // $("#results").text(json_data); 
+    // $(".modal-body").text(json_data); 
 
-    // $("#results").text(data);
+    // // $("#results").text(data);
 
-    ev.preventDefault();
+    // ev.preventDefault();
 });
 
 $("#seehistory").on("click", function(){
