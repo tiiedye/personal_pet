@@ -6,10 +6,10 @@
             <br>
             <label for="FormSelect1">Select Category</label>
             <select class="form-control" id="selectCategory">
-                <option>Personal Grooming</option>
-                <option>Food</option>
-                <option>Exercise</option>
-                <option>Cleaning</option>
+                <option value="grooming">Personal Grooming</option>
+                <option value="food">Food</option>
+                <option value="exercise">Exercise</option>
+                <option value="cleaning">Cleaning</option>
             </select>
             <br>
             <label for="difficulty">Difficulty</label>
@@ -32,7 +32,7 @@
     $(document).ready(function () {
 
         let activities = [];
-        let category = $("#selectCategory option:selected").text();
+        let category = $("#selectCategory :selected").val();
         let difficulty = $(".form-check-input:checked").val();
         const activityname = $("#addActivity");
 
