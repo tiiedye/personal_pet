@@ -65,35 +65,36 @@
                 <label class="form-check-label" for="inlineCheckbox">5 Points</label>
             </div>
             <br>
-            <button type="submit" class="btn btn-default">Save New Task</button>
+            <button type="submit" class="btn btn-default" id="savenewtask">Save New Task</button>
         </form>
     </div>
 </div>
 
 <script src="/js/members.js"></script>
-<script src="/js/homepage.js"></script>
+{{!-- <script src="/js/homepage.js"></script> --}}
 
 <script>
-    $(document).ready(function () {
+    //$(document).ready(function () {
+        //const membersAvatar = require("/js/members.js");
+        //showMemberAvatar();
+        //let activities = [];
+        //let category = $("#selectCategory option:selected").text();
+        //let difficulty = $(".form-check-input:checked").val();
+        //const activityname = $("#addActivity");
 
-        let activities = [];
-        let category = $("#selectCategory option:selected").text();
-        let difficulty = $(".form-check-input:checked").val();
-        const activityname = $("#addActivity");
+        //$("#savenewtask").on("click", function () {
+            //const activityData = {
+                //activityName: activityname.val().trim(),
+              //  priority: difficulty,
+              //  category: category
+            //}
 
-        $("#savenewtask").on("click", function () {
-            const activityData = {
-                activityName: activityname.val().trim(),
-                priority: difficulty,
-                category: category
-            }
+            //console.log("********",activityData);
 
-            console.log("********",activityData);
+           // createActivity(activityData.activityName, activityData.priority, activityData.category, activityData)
+       // });
 
-            createActivity(activityData.activityName, activityData.priority, activityData.category, activityData)
-        });
-
-        function createActivity(activityName, priority, category, activityData){
+        //function createActivity(activityName, priority, category, activityData){
             
             
             //$.post("/api/activity", function(data){
@@ -101,7 +102,7 @@
             //}).then(function () {
             //    console.log("new activity added: " + activityData);
             //});
-        }
+       // }
 
-    })
+    //})
 </script>
