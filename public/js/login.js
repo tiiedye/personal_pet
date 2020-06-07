@@ -13,8 +13,12 @@ $(document).ready(() => {
     };
 
     if (!userData.email || !userData.password) {
+      alert("Please enter an email and a password")
+      emailInput.val("");
+      passwordInput.val("");
       return;
     }
+
 
     // If we have an email and password we run the loginUser function and clear the form
     loginUser(userData.email, userData.password);
