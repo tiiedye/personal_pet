@@ -11,6 +11,35 @@ $(document).ready(() => {
     $(".member-name").text(data.email);
   });
 
+  $(".complete").on("click", function(event) {
+        event.preventDefault();
+        
+        $.get("/api/sidekick", function(data) {
+            var happinessValue = $(this.value);
+            var happinessPnts = happinessValue + parseInt(data[0].Sidekicks[0].happinessPoints);
+        }).then(function() {
+        $.ajax({
+            type: "PUT",
+            url: "/api/sidekick",
+            data: { 'Sidekicks.happinessPoints': happinessPnts }
+        })
+
+            updateImage();
+            updateProgress();
+        })
+    });
+
+    function updateProgress() {
+        $.get("/api/sidekick/", function(data) {
+            $(".progressBar").attr("value", 65);
+        })
+    }
+
+    //   test jQuery to be deleted later
+    $(".update-activity").on("click", function() {
+        updateProgress();
+    })
+
   function updateImg() {
     $.get("/api/sidekick", function(data) {
       console.log(data);

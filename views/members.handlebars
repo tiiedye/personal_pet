@@ -38,6 +38,10 @@
 
             {{!-- Div to hold added activities --}}
             <div class="col-md-8">
+                Test Task
+                    <button class="complete" data-id="{{id}}" data-category="{{category}}" value="50">Complete</button>
+	                <button data-updatetask="{{id}}" data-category="{{category}}" class="update-activity">Update</button>
+                    <button data-deletetask="{{id}}" class="delete-activity">Delete</button>
                 {{#each Activity}}
                     {{> activity-block}}
                 {{/each}}
@@ -45,6 +49,8 @@
         </div>
   </div>
 </div>
+
+{{!-- {{> add-activity-modal}} --}}
 
 <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-body">
@@ -63,11 +69,11 @@
             <label for="difficulty">Difficulty</label>
             <br>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" style="opacity: 1" type="radio" name="inlineCheckbox" id="inlineRadio1" value="1">
+                <input class="form-check-input activity-check" style="opacity: 1" type="radio" name="inlineCheckbox" id="inlineRadio1" value="1">
                 <label class="form-check-label" for="inlineCheckbox">1 Point</label>
-                <input class="form-check-input" style="opacity: 1" type="radio" name="inlineCheckbox" id="inlineRadio3" value="3">
+                <input class="form-check-input activity-check" style="opacity: 1" type="radio" name="inlineCheckbox" id="inlineRadio3" value="3">
                 <label class="form-check-label" for="inlineCheckbox">3 Points</label>
-                <input class="form-check-input" style="opacity: 1" type="radio" name="inlineCheckbox" id="inlineRadio5" value="5">
+                <input class="form-check-input activity-check" style="opacity: 1" type="radio" name="inlineCheckbox" id="inlineRadio5" value="5">
                 <label class="form-check-label" for="inlineCheckbox">5 Points</label>
             </div>
             <br>
