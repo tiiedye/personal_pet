@@ -35,10 +35,12 @@ $(document).ready(function () {
       emailInput.val("");
       passwordInput.val("");
       sidekick.val("");
-      alert("Welcome " + sidekickData.name + ". Please log in to continue.")
+      alert("Welcome " + sidekickData.name + " !");
   });
 
-
+//This function creates a new user, and then gets all of the users. 
+//Next it uses the users table and takes the last one(the one just created)
+//And assigns the sidekick to that user
   async function createUserandSidekick(email, password, name, image) {
       await $.post("/api/signup", {
           email: email,
