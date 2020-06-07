@@ -1,5 +1,10 @@
-$(document).ready(function () {
+
+$(document).ready(() => {
+
+    var thisId;
+
     console.log("member's script is loaded");
+
   // This file just does a GET request to figure out which user is logged in
   // and updates the HTML on the page
   $.get("/api/user_data").then(data => {
@@ -9,6 +14,7 @@ $(document).ready(function () {
   function updateImg() {
     $.get("/api/sidekick", function(data) {
       console.log(data);
+        thisId = data[0].Sidekicks[0].UserId
         if (data[0].Sidekicks[0].sidekickImage === "dog") {
             if (data[0].Sidekicks[0].happinessPoints < 30) {
                 $(".imgDiv").empty();
