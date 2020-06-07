@@ -1,3 +1,40 @@
+
+	
 	<button class="change-sleep" data-id="{{id}}" data-newsleep="{{sleep}}">
 		{{#if sleep}}Wake Up{{else}}Sleep{{/if}}
 	</button>
+
+	    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"data-id="{{id}}" data-newsleep="{{sleep}}" >
+ {{#if sleep}}Wake Up{{else}}Sleep{{/if}}
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Sleep</button>
+        <button type="button" class="btn btn-primary"></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+	var messageSleep= ["Great Job Today!!", "You accomplished so much today, be proud of yourself!", "Time to rest, Put your mind at ease and get excited for tomorrow", "Pat yourself on the back, you did amazing today", "You did fantastic, time to sleep and get ready for a brand new day!", "You deserve the rest, another day of taking care of the most important person in your life, YOU!!"]
+	var messageWakeUp= ["Good Morning!!, Its a new day to be your best self", "Daily Reminder: You are amazing and there is nothing you can't do", "Its time to wake up and be great once again!!", "Sun is up and so are you, do what you can today, everything counts!!", "Stretch and get up, you can do anything you put your mind to!!", "You're awake!, remember everyday can be a great day!"]
+	Math.floor(Math.random() * 5); 
+
+
+</script>
+
+

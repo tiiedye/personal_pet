@@ -1,0 +1,124 @@
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button>
+
+<link rel="stylesheet" href="scale.css">
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+
+        integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT"
+
+        crossorigin="anonymous">
+</script>
+<link rel="stylesheet" href="style.css">
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+
+        crossorigin="anonymous"></script>
+
+<script src="members.js"></script>
+
+<script src="scale.js"></script>
+
+
+
+<div id="activityGraph"></div>
+
+
+<script>
+
+
+
+var myDate = [
+
+    [0, 20, 33, 10, 54, 90, 70, 84, 95, 100],
+
+    [0, 30, 23, 20, 44, 60, 10, 50, 10, 40]
+
+],
+
+$('.demo').activityChart({
+
+  chartData: myData
+
+});
+
+
+var myData = [
+    item1: {
+      value:'Value 1',
+
+      title:'Title 1'
+    },
+
+    item2: {
+
+      value:'Value 2',
+
+      title:'Title 2'
+
+    },
+
+    item3: {
+
+      value:'Value 3',
+
+      title:'Title 3'
+
+    },
+
+
+
+
+$("#chart").linechart({
+
+  data: items,
+
+  line:true 
+
+});
+ Set the height/width of the line chart.
+
+
+
+$("#chart").linechart({
+
+  width: 30,
+
+  height: 10,
+
+});
+
+
+
+$("#chart").linechart({
+
+  boxSize: 16,
+
+});
+
+</script>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
