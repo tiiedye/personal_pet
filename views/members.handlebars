@@ -37,6 +37,10 @@
 
             {{!-- Div to hold added activities --}}
             <div class="col-md-8">
+                Test Task
+                    <button class="complete" data-id="{{id}}" data-category="{{category}}" value="50">Complete</button>
+	                <button data-updatetask="{{id}}" data-category="{{category}}" class="update-activity">Update</button>
+                    <button data-deletetask="{{id}}" class="delete-activity">Delete</button>
                 {{#each Activity}}
                     {{> activity-block}}
                 {{/each}}
@@ -44,6 +48,8 @@
         </div>
   </div>
 </div>
+
+{{!-- {{> add-activity-modal}} --}}
 
 <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-body">
