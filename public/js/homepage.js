@@ -1,10 +1,15 @@
+$('#addtask').on('click', function(ev) {
+    // $('#myModal').modal('show'); 
 
+    // let data = $(this).serializeObject();
+    // json_data = JSON.stringify(data);
+    // $("#results").text(json_data); 
+    // $(".modal-body").text(json_data); 
 
+    // // $("#results").text(data);
 
-$("#addtask").on("click", function(){
-
-
-})
+    // ev.preventDefault();
+});
 
 $("#seehistory").on("click", function(){
 
@@ -37,11 +42,6 @@ $("#logout").on("click", function(){
 })
 
 $("#switchuser").on("click", function(){
-
-    
-})
-
-$("#savenewtask").on("click", function(){
 
     
 })

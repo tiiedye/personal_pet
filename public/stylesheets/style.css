@@ -30,6 +30,16 @@ body{
   background-color: #440a31;
 }
 
+.navbar-brand {
+  margin-left: 75%;
+  color: white;
+}
+
+.navbar-brand:hover {
+  color: #f4ac84;
+}
+
+
 h1 {
   color: white;
   text-align: center;
@@ -59,5 +69,15 @@ h1 {
 
 /* CHECKED STYLES */
 [type=radio]:checked + img {
-  outline: 2px solid #f00;
+  outline: 2px solid #f4ac84;
+}
+
+.modal-body {
+  background-color: #ffffff;
+}
+
+.form-check-input {
+  height: 20px;
+  width: 20px;
+  opacity: 1;
 }
