@@ -3,7 +3,7 @@ $(document).ready(function () {
   const emailInput = $("#email-input");
   const passwordInput = $("#password-input");
   const sidekick = $("#name-input");
- 
+  
  
   var users =[];
   var indexNum;
@@ -29,13 +29,21 @@ $(document).ready(function () {
           return;
       }
 
+      if (!sidekickData.name) {
+        alert("Please give your Sidekick a name!")
+        return;
+      }
+
+      if (!sidekickData.image) {
+        alert("Please select one of the images")
+        return;
+      }
+
       
      
       createUserandSidekick(userData.email, userData.password, sidekickData.name, sidekickData.image);
-      emailInput.val("");
-      passwordInput.val("");
-      sidekick.val("");
-      alert("Welcome " + sidekickData.name + " !");
+      // emptyValues();
+      alert("Welcome " + sidekickData.name + "!");
   });
 
 //This function creates a new user, and then gets all of the users. 
@@ -50,6 +58,7 @@ $(document).ready(function () {
           });  
       await $.get("/api/users", function(data) {
           users = data;
+          console.log(users)
           indexNum = (users.length - 1)
       });
       $.post("/api/sidekick", {
@@ -58,8 +67,16 @@ $(document).ready(function () {
           UserId: users[indexNum].id
       }).then(function () {
                   console.log("added sidekick");
+                  // emptyValues();
                   window.location.replace("/members");
           });
   }
 
 });
+
+//This empties all of the form's values
+function emptyValues() {
+  emailInput.val("");
+  passwordInput.val("");
+  sidekick.val("");
+}
