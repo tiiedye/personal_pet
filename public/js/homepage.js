@@ -17,7 +17,7 @@ $("#seehistory").on("click", function(){
 })
 
 $("#sleeporwakeup").on("click", function(){
-
+ 
     
 })
 
@@ -82,6 +82,11 @@ $("#sidekickcat").on("click", function(){
 })
 
 $("#sidekickdog").on("click", function(){
+
+    
+})
+
+$("#graph").on("click", function(){
 
     
 })
