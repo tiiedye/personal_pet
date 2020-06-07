@@ -9,6 +9,7 @@ body{
   background-color: #ad591d;
   color: 		#773d15;
   width: 100%;
+  margin: 2px;
 }
 
 
@@ -47,6 +48,15 @@ h1 {
 
 .homePage {
   text-align: center;
+}
+
+.divContent {
+  text-align: center;
+}
+
+.card-bg {
+  background-color: #fff4db;
+  border-color: bisque;
 }
 
 .footer {
