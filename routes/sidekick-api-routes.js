@@ -1,6 +1,7 @@
 var db = require("../models");
 
 module.exports = function(app) {
+
     app.get("/api/sidekick", function(req, res) {
         db.User.findAll({
             include: [db.Sidekick]
@@ -14,4 +15,17 @@ module.exports = function(app) {
             res.json(sidekickCreateResult)
         })
     })
+
+    app.put("/api/sidekick", function(req,res) {
+        console.log(req.body)
+        db.Sidekick.update({
+            happinessPoints: req.body.happinessPnts
+        }, {
+            where: {
+                id: req.body.id
+            }
+        }).then(function(dbSidekick) {
+            res.json(dbSidekick);
+        });
+    });
 }
