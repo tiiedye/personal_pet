@@ -1,37 +1,45 @@
 
 body{
-  background-color: #feeeca;
+  background-color: #fff2ea;
   font-family: 'Gochi Hand', cursive
 
 }
 
 .btn{
-  background-color: #ad591d;
-  color: 		#773d15;
+  background-color: #ff8d8b;
+  color: #e84c3d;
+  border: 1px solid #b8342f;
   width: 100%;
   margin: 2px;
 }
 
 .btn:hover {
-  background-color: #773d15;
-  color: #ad591d;
+  background-color: #e84c3d;
+  color: #ff8d8b;
+  border: 1px solid #b8342f;
 }
 
 .btn:active {
-  background-color: #773d15;
-  color: #ad591d;
+  background-color: #ff8d8b;
+  color: #e84c3d;
+  border: 1px solid #b8342f;
+}
+
+.logout {
+  margin: 20px;
+  float: right;
 }
 
 a {
-  color: #ad591d;
+  color: #e84c3d;
 }
 
 a:hover {
-  color: #773d15;
+  color: #ff8d8b;
 }
 
 a:active {
-  color: #ad591d;
+  color: #b8342f;
 }
 
 .email,
@@ -45,11 +53,13 @@ a:active {
 .login {
   padding: 10px;
   margin-top: 10px;
-  background-color: 	#2c3c54;
+  background-color: 	#3e607c;
+  border: 1px solid #2d3e50;
+  border-radius: 5px;
 }
 
 .navbar {
-  background-color: #440a31;
+  background-color: #4da8bb;
 }
 
 .navbar-brand {
@@ -62,8 +72,13 @@ a:active {
 }
 
 
-h1 {
+.header {
   color: white;
+  text-align: center;
+}
+
+.sidekickName {
+  color: #3e607c;
   text-align: center;
 }
 
@@ -76,12 +91,12 @@ h1 {
 }
 
 .card-bg {
-  background-color: #fff4db;
-  border-color: bisque;
+  background-color: #ffede2;
+  border-color: #3c878c;
 }
 
 .footer {
-  background-color: #f4ac84;
+  background-color: #4da8bb;
   text-align: center;
 }
 

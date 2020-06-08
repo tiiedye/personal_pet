@@ -1,17 +1,21 @@
-<nav class="navbar">
+<nav class="navbar navbar-expand-lg">
     <h1 class="header">
         Self-Care Sidekick
     </h1>
-    <a class="navbar-brand" href="/logout">
-        Logout
-    </a>
+    <div id="navbarSupportedContent">
+        <a class="navbar-brand" href="/logout">
+            <button class="btn">Logout</button>
+        </a>
+    </div>
 
 </nav>
+
+<p></p>
 
 <div class="card container card-bg">
 
   <div class="card-body">
-        <h3 class="sidekickName"></h3>
+        <h3 class="sidekickName header"></h3>
 
 
         <div class="row divContent">
@@ -41,9 +45,9 @@
             <div class="col-md-8">
                 Test Task
 
-                  <button class="complete" data-id="{{id}}" data-category="{{category}}" data-value="50">Complete</button>
-	                <button data-updatetask="{{id}}" data-category="{{category}}" class="update-activity">Update</button>
-                  <button data-deletetask="{{id}}" class="delete-activity">Delete</button>
+                <button class="complete" data-id="{{id}}" data-category="{{category}}" data-value="50">Complete</button>
+	            <button data-updatetask="{{id}}" data-category="{{category}}" class="update-activity">Update</button>
+                <button data-deletetask="{{id}}" class="delete-activity">Delete</button>
 
                 {{#each Activity}}
                 {{> activity-block}}
@@ -52,6 +56,8 @@
         </div>
     </div>
 </div>
+
+<p></p>
 
 <footer class="footer">
 
