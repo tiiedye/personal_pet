@@ -17,6 +17,8 @@ $(document).ready(() => {
   }
   sidekickName();
 
+  console.log("helloo");
+
         
     $(".complete").on("click", function(event) {
         event.preventDefault();
