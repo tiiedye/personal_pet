@@ -14,4 +14,17 @@ module.exports = function(app) {
             res.json(sidekickCreateResult)
         })
     })
+
+    app.put("/api/sidekick", function(req,res) {
+        console.log(req.body)
+        db.Sidekick.update({
+            happinessPoints: req.body.happinessPnts
+        }, {
+            where: {
+                id: req.body.id
+            }
+        }).then(function(dbSidekick) {
+            res.json(dbSidekick);
+        });
+    });
 }

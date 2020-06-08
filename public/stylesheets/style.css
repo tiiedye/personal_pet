@@ -12,6 +12,27 @@ body{
   margin: 2px;
 }
 
+.btn:hover {
+  background-color: #773d15;
+  color: #ad591d;
+}
+
+.btn:active {
+  background-color: #773d15;
+  color: #ad591d;
+}
+
+a {
+  color: #ad591d;
+}
+
+a:hover {
+  color: #773d15;
+}
+
+a:active {
+  color: #ad591d;
+}
 
 .email,
 .password{
