@@ -38,16 +38,21 @@
             </div>
 
             {{!-- Div to hold added activities --}}
-            <div class="col-md-8">
+            <div class="col-md-8 tasks-block">
                 Test Task
 
                   <button class="complete" data-id="{{id}}" data-category="{{category}}" data-value="50">Complete</button>
 	                <button data-updatetask="{{id}}" data-category="{{category}}" class="update-activity">Update</button>
                   <button data-deletetask="{{id}}" class="delete-activity">Delete</button>
 
-                {{#each Activity}}
-                {{> activity-block}}
-                {{/each}}
+                    <ul>
+                        {{#each Activities}}
+                            {{!-- {{>activity-block}} --}}
+                            {{this.activityName}}
+                        {{/each}}
+                        
+                    </ul>
+
             </div>
         </div>
     </div>

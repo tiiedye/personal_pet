@@ -76,8 +76,6 @@ $(document).ready(() => {
 
   // ACTIVITIES MODAL
 
-  // getActivities();
-
   const activityname = $("#addActivity");
 
   $("#savenewtask").on("click", function(event) {
@@ -90,7 +88,7 @@ $(document).ready(() => {
       category: category,
       UserId: thisId
     };
-    console.log("********", activityData);
+    console.log("********", activityData.UserId);
 
     createActivity(activityData);
   });
@@ -98,6 +96,7 @@ $(document).ready(() => {
   function createActivity(activityObj) {
       $.post("/api/activity", activityObj).then(function(data){
           console.log("added activity", data);
+          $("#savenewtask").attr("data-dismiss", "modal");
       });
   };
 
