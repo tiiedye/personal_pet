@@ -97,7 +97,41 @@ $(document).ready(() => {
 
   updateImg();
 
+
+    var startDay= ["Good Morning!!, Its a new day to be your best self", "Daily Reminder: You are amazing and there is nothing you can't do", "Its time to wake up and be great once again!!", "Sun is up and so are you, do what you can today, everything counts!!", "Stretch and get up, you can do anything you put your mind to!!", "You're awake!, remember everyday can be a great day!"]
+    var endDay= ["Great Job Today!!", "You accomplished so much today, be proud of yourself!", "Time to rest, Put your mind at ease and get excited for tomorrow", "Pat yourself on the back, you did amazing today", "You did fantastic, time to sleep and get ready for a brand new day!", "You deserve the rest, another day of taking care of the most important person in your life, YOU!!"]
+    var endQuote = Math.floor(Math.random() * endDay.length);
+    var startQuote = Math.floor(Math.random() * startDay.length);
+
+    function updateQuote() {
+        $(".quote").html(endDay[endQuote]);
+    }
+
+    updateQuote();
+
+    $(".resetDay").on("click", function() {
+        $.get("/api/sidekick", function(data) {
+            var currentPoints = data[0].Sidekicks[0].happinessPoints;
+            var userId = data[0].id
+
+            var resetPoints = (parseInt(currentPoints) * 0);
+                $.ajax({
+                    type: "PUT",
+                    url: "/api/sidekick",
+                    data: { 'id': userId, 'happinessPnts': resetPoints}
+                }).then(function() {
+                    updateImg();
+                    updateProgress();
+                });
+        });
+    });
+
+  let activities = [];
+  let category = $("#selectCategory option:selected").text();
+  // let difficulty = $(".form-check-input:checked").val();
+
   // ACTIVITIES MODAL
+
 
   const activityname = $("#addActivity");
 
