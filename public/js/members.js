@@ -31,8 +31,8 @@ $(document).ready(() => {
             $(".progressBar").attr("value", data[0].Sidekicks[0].happinessPoints);
 
         })
-    });
-})
+    
+    };
 
   function updateImg() {
     $.get("/api/sidekick", function(data) {
@@ -108,6 +108,6 @@ $(document).ready(() => {
         $(".addEmailForm").on("click", function (event) {
             event.preventDefault();
             console.log("party?")
-        })
+        });
 });
 
