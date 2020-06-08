@@ -32,7 +32,7 @@
                 {{!-- buttons to bring up modals --}}
                 <p>
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                        Launch demo modal
+                        Add Activity
                     </button>
                     <br>
                     <button class="btn">See History</button>
@@ -42,16 +42,21 @@
             </div>
 
             {{!-- Div to hold added activities --}}
-            <div class="col-md-8">
+            <div class="col-md-8 tasks-block">
                 Test Task
 
                 <button class="complete" data-id="{{id}}" data-category="{{category}}" data-value="50">Complete</button>
 	            <button data-updatetask="{{id}}" data-category="{{category}}" class="update-activity">Update</button>
                 <button data-deletetask="{{id}}" class="delete-activity">Delete</button>
 
-                {{#each Activity}}
-                {{> activity-block}}
-                {{/each}}
+                    <ul>
+                        {{#each Activities}}
+                            {{!-- {{>activity-block}} --}}
+                            {{this.activityName}}
+                        {{/each}}
+                        
+                    </ul>
+
             </div>
         </div>
     </div>
@@ -71,40 +76,8 @@
 
 </footer>
 
-{{!-- {{> add-activity-modal}} --}}
-
-<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-body">
-        <form>
-            <label for="add-activity-form">Add New Activity</label>
-            <input type="text" class="form-control" id="addActivity" placeholder="Activity Name">
-            <br>
-            <label for="FormSelect1">Select Category</label>
-            <select class="form-control" id="selectCategory">
-                <option>Personal Grooming</option>
-                <option>Food</option>
-                <option>Exercise</option>
-                <option>Cleaning</option>
-            </select>
-            <br>
-            <label for="difficulty">Difficulty</label>
-            <br>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input activity-check" type="radio" name="inlineCheckbox"
-                    id="inlineRadio1" value="1">
-                <label class="form-check-label" for="inlineCheckbox">1 Point</label>
-                <input class="form-check-input activity-check" type="radio" name="inlineCheckbox"
-                    id="inlineRadio3" value="3">
-                <label class="form-check-label" for="inlineCheckbox">3 Points</label>
-                <input class="form-check-input activity-check" type="radio" name="inlineCheckbox"
-                    id="inlineRadio5" value="5">
-                <label class="form-check-label" for="inlineCheckbox">5 Points</label>
-            </div>
-            <br>
-            <button type="submit" class="btn btn-default" id="savenewtask">Save New Task</button>
-        </form>
-    </div>
-</div>
+{{!-- Add Activity Modal --}}
+{{> add-activity-modal}}
 
 <script
   src="https://code.jquery.com/jquery-3.5.1.min.js"
@@ -117,6 +90,7 @@
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
     crossorigin="anonymous"></script>
 <script src="/js/members.js"></script>
+
 <script src="/js/modal.js"
 {{!-- <script src="/js/homepage.js"></script> --}}
 
@@ -153,3 +127,4 @@
 
     //})
 </script>
+

@@ -15,6 +15,10 @@ module.exports = function(app) {
         })
     })
 
+    app.get("/activity", function(req, res) {
+        res.render("Activity", { activities: Activity });
+      });
+
     app.delete("/api/activity/:id", function(req,res) {
         db.Activity.destroy({
             where: {

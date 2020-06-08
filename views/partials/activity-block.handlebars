@@ -5,34 +5,40 @@
     {{#if category=cleaning}}<img src="/assets/Shovel.png" alt="cleaning" width="50px">{{/if}}
     {{activityName}}
     <button class="complete" data-id="{{id}}" data-category="{{category}}">Complete</button>
-	<button data-updatetask="{{id}}" data-category="{{category}}" class="update-activity">Update</button>
+    <button data-updatetask="{{id}}" data-category="{{category}}" class="update-activity">Update</button>
     <button data-deletetask="{{id}}" class="delete-activity">Delete</button>
 </li>
 
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+<script src="/js/members.js"></script>
 <script>
-    $(document).ready(function () {
-
-        function getAuthors() {
-            $.get("/api/authors", function (data) {
-                var rowsToAdd = [];
-                for (var i = 0; i < data.length; i++) {
-                    rowsToAdd.push(createAuthorRow(data[i]));
-                }
-                renderAuthorList(rowsToAdd);
-                nameInput.val("");
-            });
-        }
-
-        $(".delete-activity").on("click", function (event) {
-            event.preventDefault();
-            let taskid = $(this).data("deletetask");
-
-            $.delete("/api/activity/" + taskid)
-            .then(function() {
-                console.log("deleted activity id: " + taskid);
-                location.reload();
-            });
+    
+    function getUserforActivity() {
+        $.get("/api/activity", function (data) {
+            var rowsToAdd = [];
+            for (var i = 0; i < data.length; i++) {
+                rowsToAdd.push(createAuthorRow(data[i]));
+            }
+            renderAuthorList(rowsToAdd);
+            nameInput.val("");
         });
-    });
+    }
 
-</script>
+    //$(".delete-activity").on("click", function (event) {
+        //event.preventDefault();
+        //let taskid = $(this).data("deletetask");
+
+        //$.delete("/api/activity/" + taskid)
+            //.then(function () {
+                //console.log("deleted activity id: " + taskid);
+                //location.reload();
+            //});
+    //});
+//</script>
