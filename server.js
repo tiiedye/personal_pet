@@ -3,6 +3,9 @@ const express = require("express");
 const session = require("express-session");
 // Requiring passport as we've configured it
 const passport = require("./config/passport");
+// const nodemailer = require("nodemailer")
+
+// const transporter = require("./public/js/modal")
 
 
 // Setting up port and requiring models for syncing
@@ -15,6 +18,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 var exphbs = require("express-handlebars");
+
+
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
@@ -30,6 +35,7 @@ require("./routes/login-api-routes.js")(app);
 require("./routes/activity-api-routes.js")(app);
 require("./routes/sidekick-api-routes.js")(app);
 require("./routes/html-routes.js")(app);
+require("./routes/email-route.js")(app);
 
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync({ force: true }).then(() => {
