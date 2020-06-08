@@ -9,13 +9,21 @@ $(document).ready(() => {
     $(".member-name").text(data.email);
   });
 
+  function sidekickName() {
+      $.get("/api/sidekick").then((data) => {
+
+          $(".sidekickName").html(data[0].Sidekicks[0].sidekickName);
+      })
+  }
+  sidekickName();
+
         
-        $(".complete").on("click", function(event) {
-            event.preventDefault();
-            var happinessValue = $(this).attr("data-value");
-            var taskId = $(this).attr("data-id");
-            $.get("/api/sidekick", function(data) {
-                var happinessPnts = parseInt(happinessValue) + parseInt(data[0].Sidekicks[0].happinessPoints);
+    $(".complete").on("click", function(event) {
+        event.preventDefault();
+        var happinessValue = $(this).attr("data-value");
+        var taskId = $(this).attr("data-id");
+        $.get("/api/sidekick", function(data) {
+            var happinessPnts = parseInt(happinessValue) + parseInt(data[0].Sidekicks[0].happinessPoints);
                 $.ajax({
                     type: "PUT",
                     url: "/api/sidekick",
@@ -24,8 +32,8 @@ $(document).ready(() => {
                     updateImg();
                     updateProgress();
                 });
-            });
-      });
+        });
+    });
 
     function updateProgress() {
         $.get("/api/sidekick/", function(data) {
