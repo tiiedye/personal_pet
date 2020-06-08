@@ -9,8 +9,31 @@ $(document).ready(() => {
     $(".member-name").text(data.email);
   });
 
-  $(".complete").on("click", function(event) {
-    event.preventDefault();
+  function sidekickName() {
+      $.get("/api/sidekick").then((data) => {
+
+          $(".sidekickName").html(data[0].Sidekicks[0].sidekickName);
+      })
+  }
+  sidekickName();
+
+        
+    $(".complete").on("click", function(event) {
+        event.preventDefault();
+        var happinessValue = $(this).attr("data-value");
+        var taskId = $(this).attr("data-id");
+        $.get("/api/sidekick", function(data) {
+            var happinessPnts = parseInt(happinessValue) + parseInt(data[0].Sidekicks[0].happinessPoints);
+                $.ajax({
+                    type: "PUT",
+                    url: "/api/sidekick",
+                    data: { 'id': taskId, 'happinessPnts': happinessPnts }
+                }).then(function() {
+                    updateImg();
+                    updateProgress();
+                });
+        });
+    });
 
     $.get("/api/sidekick", function(data) {
       // happinessPoints = 0
@@ -115,6 +138,7 @@ $(document).ready(() => {
 //         console.log("added activity", data);
 //     });
 //   };
+
 
 });
 
