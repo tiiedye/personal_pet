@@ -114,10 +114,7 @@ $(document).ready(() => {
     //});
   }
 
-        $(".addEmailForm").on("click", function (event) {
-            event.preventDefault();
-            console.log("party?")
-        });
+
 });
 
 

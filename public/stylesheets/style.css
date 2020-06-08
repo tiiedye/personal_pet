@@ -100,6 +100,12 @@ a:active {
   text-align: center;
 }
 
+/* this section of css corresponds to signup html */
+
+#sidekick-image-p {
+  color: white;
+}
+
 /* HIDE RADIO */
 [type=radio] { 
   position: absolute;
@@ -129,7 +135,7 @@ a:active {
 }
 
 .addEmailForm {
-  width: 20px;
+  width: 30px;
   color: white;
   margin-left: 85%;
 }
