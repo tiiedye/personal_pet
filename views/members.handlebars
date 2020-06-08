@@ -1,17 +1,18 @@
-
 <nav class="navbar">
     <h1 class="header">
         Self-Care Sidekick
     </h1>
     <a class="navbar-brand" href="/logout">
         Logout
-      </a>
-    
+    </a>
+
 </nav>
 
 <div class="card container card-bg">
+
   <div class="card-body">
         <h3 class="sidekickName"></h3>
+
 
         <div class="row divContent">
             <div class="col-md-4">
@@ -22,7 +23,7 @@
                 <p>
                     {{> status}}
                 </p>
-                
+
                 {{> graph}}
                 {{!-- buttons to bring up modals --}}
                 <p>
@@ -34,30 +35,34 @@
                     <br>
                     {{> sleep-wake sleep=false}}
                 </p>
-                </div>
+            </div>
 
             {{!-- Div to hold added activities --}}
             <div class="col-md-8">
                 Test Task
-                    <button class="complete" data-id="{{id}}" data-category="{{category}}" data-value="50">Complete</button>
+
+                  <button class="complete" data-id="{{id}}" data-category="{{category}}" data-value="50">Complete</button>
 	                <button data-updatetask="{{id}}" data-category="{{category}}" class="update-activity">Update</button>
-                    <button data-deletetask="{{id}}" class="delete-activity">Delete</button>
+                  <button data-deletetask="{{id}}" class="delete-activity">Delete</button>
+
                 {{#each Activity}}
-                    {{> activity-block}}
+                {{> activity-block}}
                 {{/each}}
             </div>
         </div>
-  </div>
+    </div>
 </div>
 
 <footer class="footer">
-    <p id = "nodemailer">
+
+  <p id = "nodemailer">
         Think a friend could benefit from having a sidekick? <a href="" data-toggle="modal" data-target="#inviteModal">Invite them!</a>
     </p>
     {{> invite}}
     <p>
     Contributors and Credits: <a href="https://github.com/AnnaxGrace" target="_blank">Anna</a> || <a href="https://github.com/sharlenemay" target="_blank">Sharlene</a> || <a href="https://github.com/tiiedye" target="_blank">Jace</a> || <a href="https://github.com/returntrip444" target="_blank">Daniel</a> || Images sourced from: <a href="https://www.freevector.com/" target="_blank">FreeVector</a>
     </p>
+
 </footer>
 
 {{!-- {{> add-activity-modal}} --}}
@@ -79,11 +84,14 @@
             <label for="difficulty">Difficulty</label>
             <br>
             <div class="form-check form-check-inline">
-                <input class="form-check-input activity-check" style="opacity: 1" type="radio" name="inlineCheckbox" id="inlineRadio1" value="1">
+                <input class="form-check-input activity-check" type="radio" name="inlineCheckbox"
+                    id="inlineRadio1" value="1">
                 <label class="form-check-label" for="inlineCheckbox">1 Point</label>
-                <input class="form-check-input activity-check" style="opacity: 1" type="radio" name="inlineCheckbox" id="inlineRadio3" value="3">
+                <input class="form-check-input activity-check" type="radio" name="inlineCheckbox"
+                    id="inlineRadio3" value="3">
                 <label class="form-check-label" for="inlineCheckbox">3 Points</label>
-                <input class="form-check-input activity-check" style="opacity: 1" type="radio" name="inlineCheckbox" id="inlineRadio5" value="5">
+                <input class="form-check-input activity-check" type="radio" name="inlineCheckbox"
+                    id="inlineRadio5" value="5">
                 <label class="form-check-label" for="inlineCheckbox">5 Points</label>
             </div>
             <br>
@@ -92,11 +100,15 @@
     </div>
 </div>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-		<script src="/js/members.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+<script src="/js/members.js"></script>
 {{!-- <script src="/js/homepage.js"></script> --}}
 
 <script>
@@ -121,8 +133,8 @@
        // });
 
         //function createActivity(activityName, priority, category, activityData){
-            
-            
+
+
             //$.post("/api/activity", function(data){
             //    alert("success");
             //}).then(function () {
@@ -132,4 +144,3 @@
 
     //})
 </script>
-
