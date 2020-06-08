@@ -91,3 +91,9 @@ h1 {
   width: 20px;
   opacity: 1;
 }
+
+.addEmailForm {
+  width: 20px;
+  color: white;
+  margin-left: 85%;
+}
