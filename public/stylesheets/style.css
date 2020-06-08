@@ -75,6 +75,7 @@ a:active {
 .header {
   color: white;
   text-align: center;
+  white-space: nowrap;
 }
 
 .sidekickName {
