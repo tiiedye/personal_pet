@@ -1,31 +1,43 @@
-    //$(document).ready(function () {
-        //const membersAvatar = require("/js/members.js");
-        //showMemberAvatar();
-        //let activities = [];
-        //let category = $("#selectCategory option:selected").text();
-        //let difficulty = $(".form-check-input:checked").val();
-        //const activityname = $("#addActivity");
+ // ACTIVITIES MODAL
 
-        //$("#savenewtask").on("click", function () {
-            //const activityData = {
-                //activityName: activityname.val().trim(),
-              //  priority: difficulty,
-              //  category: category
-            //}
+ const activityname = $("#addActivity");
+ let thisId;
 
-            //console.log("********",activityData);
+//  on click savenewtask, activity will be pushed to Activity table db
+ $("#savenewtask").on("click", function(event) {
+   let category = $("#selectCategory option:selected").text();
+   let priority = $(".form-check-input:checked").val();
+   event.preventDefault();
+   const activityData = {
+     activityName: activityname.val().trim(),
+     priority: priority,
+     category: category,
+     UserId: thisId
+   };
+   console.log("********", activityData.UserId);
 
-           // createActivity(activityData.activityName, activityData.priority, activityData.category, activityData)
-       // });
+   createActivity(activityData);
+ });
 
-        //function createActivity(activityName, priority, category, activityData){
+ function createActivity(activityObj) {
+     $.post("/api/activity", activityObj).then(function(data){
+         console.log("added activity", data);
+         $("#savenewtask").attr("data-dismiss", "modal");
+     });
+ };
 
-
-            //$.post("/api/activity", function(data){
-            //    alert("success");
-            //}).then(function () {
-            //    console.log("new activity added: " + activityData);
-            //});
-       // }
-
-    //})
+ //   function getUser(email) {
+ //     $.get("/api/users", function(data) {});
+ //   }
+ //   async function createActivity (activityObj) {
+ //     await $.get("/api/users", function(data) {
+ //         users = data;
+ //         indexNum = (users.length - 1)
+ //     });
+ //     $.post("/api/activity", {
+ //         activityObj,
+ //         UserId: users[indexNum].id
+ //     }).then(function(data){
+ //         console.log("added activity", data);
+ //     });
+ //   };
