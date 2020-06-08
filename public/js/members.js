@@ -76,32 +76,47 @@ $(document).ready(() => {
 
   // ACTIVITIES MODAL
 
-  // let difficulty = $(".form-check-input:checked").val();
+  // getActivities();
+
   const activityname = $("#addActivity");
-  
+
   $("#savenewtask").on("click", function(event) {
-      let category = $("#selectCategory option:selected").text();
-      event.preventDefault();
+    let category = $("#selectCategory option:selected").text();
+    let priority = $(".form-check-input:checked").val();
+    event.preventDefault();
     const activityData = {
       activityName: activityname.val().trim(),
-      priority: $(".form-check-input:checked").val(),
+      priority: priority,
       category: category,
+      UserId: thisId
     };
-    // console.log("********", activityData);
+    console.log("********", activityData);
 
     createActivity(activityData);
   });
 
-  function getUser(email) {
-    $.get("/api/users", function(data) {});
-  }
-
   function createActivity(activityObj) {
-    $.post("/api/activity", activityObj).done(function(data) {
-      console.log("post was successful!", data);
-    });
+      $.post("/api/activity", activityObj).then(function(data){
+          console.log("added activity", data);
+      });
+  };
 
-  }
+  //   function getUser(email) {
+  //     $.get("/api/users", function(data) {});
+  //   }
+//   async function createActivity (activityObj) {
+//     await $.get("/api/users", function(data) {
+//         users = data;
+//         indexNum = (users.length - 1)
+//     });
+//     $.post("/api/activity", {
+//         activityObj,
+//         UserId: users[indexNum].id
+//     }).then(function(data){
+//         console.log("added activity", data);
+//     });
+//   };
+
 });
 
 
