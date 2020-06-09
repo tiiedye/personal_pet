@@ -11,12 +11,13 @@ $(document).ready(() => {
     });
 
     var userId;
+    var sidekickId
   
     function sidekickName() {
         $.get("/api/user_data", function(result) {
             userId = (parseInt(result.id) - 1)
-            console.log("this is userId")
-            console.log((parseInt(userId) + 1))
+            // console.log("this is userId")
+            // console.log((parseInt(userId) + 1))
         }).then(
         $.get("/api/sidekick").then((data) => {
                 console.log(data[userId]);
@@ -34,18 +35,20 @@ $(document).ready(() => {
           
           $.get("/api/user_data", function(result) {
             userId = (parseInt(result.id) - 1)
-            console.log("this is userId")
-            console.log((parseInt(userId) + 1))
+            sidekickId = parseInt(result.id);
+            // console.log("this is userId")
+            // console.log((parseInt(userId) + 1))
         }).then(
           $.get("/api/sidekick", function(data) {
               var happinessPnts = parseInt(happinessValue) + parseInt(data[userId].Sidekicks[0].happinessPoints);
                   $.ajax({
                       type: "PUT",
                       url: "/api/sidekick",
-                      data: { 'id': taskId, 'happinessPnts': happinessPnts }
+                      data: { 'id': sidekickId, 'happinessPnts': happinessPnts }
                   }).then(function() {
                       updateImg();
                       updateProgress();
+                      console.log(data[userId].Sidekicks);
                   });
           }));
       });
@@ -53,8 +56,8 @@ $(document).ready(() => {
       function updateProgress() {
         $.get("/api/user_data", function(result) {
             userId = (parseInt(result.id) - 1)
-            console.log("this is userId")
-            console.log((parseInt(userId) + 1))
+            // console.log("this is userId")
+            // console.log((parseInt(userId) + 1))
         }).then(
           $.get("/api/sidekick/", function(data) {
               $(".progressBar").attr("value", data[userId].Sidekicks[0].happinessPoints);
@@ -74,8 +77,8 @@ $(document).ready(() => {
       function updateImg() {
         $.get("/api/user_data", function(result) {
             userId = (parseInt(result.id) - 1)
-            console.log("this is userId")
-            console.log((parseInt(userId) + 1))
+            // console.log("this is userId")
+            // console.log((parseInt(userId) + 1))
         }).then(
           $.get("/api/sidekick", function(data) {
             
@@ -85,10 +88,10 @@ $(document).ready(() => {
             // console.log(data);
       
               if (data[userId].Sidekicks[0].sidekickImage === "dog") {
-                  if (data[userId].Sidekicks[0].happinessPoints < 30) {
+                  if (data[userId].Sidekicks[0].happinessPoints < 3) {
                       $(".imgDiv").empty();
                       $(".imgDiv").html("<img src='assets/Dog-Alert.png'>");
-                  } else if (data[userId].Sidekicks[0].happinessPoints > 60) {
+                  } else if (data[userId].Sidekicks[0].happinessPoints > 6) {
                       $(".imgDiv").empty();
                       $(".imgDiv").html("<img src='assets/Dog-Happy.png'>");
                   } else {
@@ -96,10 +99,10 @@ $(document).ready(() => {
                       $(".imgDiv").html("<img src='assets/Dog-Neutral.png'>");
                   }
               } else if (data[userId].Sidekicks[0].sidekickImage === "cat") {
-                  if (data[userId].Sidekicks[0].happinessPoints < 30) {
+                  if (data[userId].Sidekicks[0].happinessPoints < 3) {
                       $(".imgDiv").empty();
                       $(".imgDiv").html("<img src='assets/Cat-Alert.png'>");
-                  } else if (data[userId].Sidekicks[0].happinessPoints > 60) {
+                  } else if (data[userId].Sidekicks[0].happinessPoints > 6) {
                       $(".imgDiv").empty();
                       $(".imgDiv").html("<img src='assets/Cat-Happy.png'>");
                   } else {
