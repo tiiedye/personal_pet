@@ -160,3 +160,14 @@ a:active {
   color: white;
   margin-left: 85%;
 }
+
+/* Hide List Marker */
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.task-listed {
+  text-align: left;
+}
