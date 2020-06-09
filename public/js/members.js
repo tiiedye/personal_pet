@@ -107,44 +107,4 @@ $(document).ready(() => {
                   });
           });
       });
-  
-    let activities = [];
-    let category = $("#selectCategory option:selected").text();
-    // let difficulty = $(".form-check-input:checked").val();
-    const activityname = $("#addActivity");
-  
-    $("#savenewtask").on("click", function(event) {
-      event.preventDefault();
-      const activityData = {
-        activityName: activityname.val().trim(),
-        priority: $(".form-check-input:checked").val(),
-        category: category,
-      };
-  
-      console.log("********", activityData);
-  
-      createActivity(activityData);
-    });
-  
-    function getUser(email) {
-      $.get("/api/users", function(data) {});
-    }
-  
-    function createActivity(activityObj) {
-      $.post("/api/activity", activityObj).done(function(data) {
-        console.log("post was successful!", data);
-      });
-  
-  
-      //$.post("/api/activity", function(data){
-      //    alert("success");
-      //}).then(function () {
-      //    console.log("new activity added: " + activityData);
-      //});
-    }
-  
-          $(".addEmailForm").on("click", function (event) {
-              event.preventDefault();
-              console.log("party?")
-          });
   });
