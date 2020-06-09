@@ -10,19 +10,6 @@ $.get("/api/user_data", function(res) {
 });
 
 //  on click savenewtask, activity will be pushed to Activity table db
-<<<<<<< HEAD
- $("#savenewtask").on("click", function(event) {
-   let category = $("#selectCategory option:selected").text();
-   let priority = $(".form-check-input:checked").val();
-   event.preventDefault();
-   const activityData = {
-     activityName: activityname.val().trim(),
-     priority: priority,
-     category: category,
-     UserId: 1
-   };
-   console.log("********", activityData.UserId);
-=======
 $("#savenewtask").on("click", function(event) {
   let category = $("#selectCategory option:selected").text();
   let priority = $(".form-check-input:checked").val();
@@ -34,7 +21,6 @@ $("#savenewtask").on("click", function(event) {
     UserId: thisId,
   };
   console.log("********", activityData.UserId);
->>>>>>> 2050ce15974375883c1e3e17d972aaeec413cb54
 
   createActivity(activityData);
 });
@@ -51,7 +37,6 @@ function createActivity(activityObj) {
   });
 }
 
-<<<<<<< HEAD
  //   function getUser(email) {
  //     $.get("/api/users", function(data) {});
  //   }
@@ -80,7 +65,6 @@ function createActivity(activityObj) {
 // });
 // }
 
-=======
 //$(".delete-activity").on("click", function (event) {
 //event.preventDefault();
 //let taskid = $(this).data("deletetask");
@@ -91,4 +75,3 @@ function createActivity(activityObj) {
 //location.reload();
 //});
 //});
->>>>>>> 2050ce15974375883c1e3e17d972aaeec413cb54

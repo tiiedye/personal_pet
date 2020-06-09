@@ -30,6 +30,7 @@ $(document).ready(() => {
           event.preventDefault();
           var happinessValue = $(this).attr("data-value");
           var taskId = $(this).attr("data-id");
+          console.log(`this is the id ${taskId}`)
           
           $.get("/api/user_data", function(result) {
             userId = (parseInt(result.id) - 1)
