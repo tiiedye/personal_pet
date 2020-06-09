@@ -12,7 +12,7 @@
      activityName: activityname.val().trim(),
      priority: priority,
      category: category,
-     UserId: thisId
+     UserId: 1
    };
    console.log("********", activityData.UserId);
 
@@ -41,3 +41,16 @@
  //         console.log("added activity", data);
  //     });
  //   };
+
+
+//  function deleteActivity(event) {
+//   event.stopPropagation();
+//   var id = $(this).data("id");
+//   $.ajax({
+//     method: "DELETE",
+//     url: "/api/activity/" + id
+//   }).then(function(data){
+        // console.log(data)
+// });
+// }
+

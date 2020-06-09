@@ -1,12 +1,12 @@
 var nodemailer = require('nodemailer');
 
 
-function passEmail(email, )
+
 var transporter = nodemailer.createTransport({
-    service: 'gmail',
+    service: 'yahoo',
     auth: {
-        user: 'anna.grace.conover@gmail.com',
-        pass: 'cogsworth'
+        user: 'selfcaresidekick@yahoo.com',
+        pass: 'personal-pet'
     }
 });
 
