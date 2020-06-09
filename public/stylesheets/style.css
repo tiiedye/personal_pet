@@ -25,6 +25,26 @@ body{
   border: 1px solid #b8342f;
 }
 
+.btn-task{
+  background-color: #ff8d8b;
+  color: #e84c3d;
+  border: 1px solid #b8342f;
+  margin: 2px;
+  border-radius: 5px;
+}
+
+.btn-task:hover {
+  background-color: #e84c3d;
+  color: #ff8d8b;
+  border: 1px solid #b8342f;
+}
+
+.btn-task:active {
+  background-color: #ff8d8b;
+  color: #e84c3d;
+  border: 1px solid #b8342f;
+}
+
 .logout {
   margin: 20px;
   float: right;

@@ -35,15 +35,22 @@ function createActivity(activityObj) {
     // });
     location.reload();
   });
-}
+};
 
-//$(".delete-activity").on("click", function (event) {
-//event.preventDefault();
-//let taskid = $(this).data("deletetask");
+$(".delete-activity").on("click", function(event) {
+  event.preventDefault();
+  let activityId = $(this).data("id");
+  console.log(activityId);
 
-//$.delete("/api/activity/" + taskid)
-//.then(function () {
-//console.log("deleted activity id: " + taskid);
-//location.reload();
-//});
-//});
+  deleteActivity(activityId);
+});
+
+function deleteActivity(id) {
+  $.ajax({
+    method: "DELETE",
+    url: "/api/activity/" + id
+  })
+    .then(function() {
+      location.reload();
+    });
+};

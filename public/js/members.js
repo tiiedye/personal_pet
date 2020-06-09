@@ -30,6 +30,7 @@ $(document).ready(() => {
           event.preventDefault();
           var happinessValue = $(this).attr("data-value");
           var taskId = $(this).attr("data-id");
+          console.log(`this is the id ${taskId}`)
           
           $.get("/api/user_data", function(result) {
             userId = (parseInt(result.id) - 1)
@@ -60,6 +61,14 @@ $(document).ready(() => {
   
           }))    
       };
+
+      $.get("/api/user_data", function(result) {
+          console.log("this is result")
+          console.log(result)
+          thisId = result.id
+          console.log("this is thisId")
+          console.log(thisId)
+      })
   
   
       function updateImg() {
@@ -69,6 +78,10 @@ $(document).ready(() => {
             console.log((parseInt(userId) + 1))
         }).then(
           $.get("/api/sidekick", function(data) {
+            
+      
+              //gets userId so that activities can be user specific
+            //   thisId = data[0].Sidekicks[0].UserId
             // console.log(data);
       
               if (data[userId].Sidekicks[0].sidekickImage === "dog") {
