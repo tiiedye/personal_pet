@@ -5,7 +5,7 @@ const session = require("express-session");
 const passport = require("./config/passport");
 // const nodemailer = require("nodemailer")
 
-// const transporter = require("./public/js/modal")
+
 
 
 // Setting up port and requiring models for syncing
@@ -18,6 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 var exphbs = require("express-handlebars");
+var helpers = require('handlebars-helpers')();
 
 
 
@@ -29,6 +30,7 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
+
 
 // Requiring our routes
 require("./routes/login-api-routes.js")(app);
