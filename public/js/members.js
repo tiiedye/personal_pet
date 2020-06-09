@@ -85,10 +85,10 @@ $(document).ready(() => {
             // console.log(data);
       
               if (data[userId].Sidekicks[0].sidekickImage === "dog") {
-                  if (data[userId].Sidekicks[0].happinessPoints < 30) {
+                  if (data[userId].Sidekicks[0].happinessPoints < 3) {
                       $(".imgDiv").empty();
                       $(".imgDiv").html("<img src='assets/Dog-Alert.png'>");
-                  } else if (data[userId].Sidekicks[0].happinessPoints > 60) {
+                  } else if (data[userId].Sidekicks[0].happinessPoints > 6) {
                       $(".imgDiv").empty();
                       $(".imgDiv").html("<img src='assets/Dog-Happy.png'>");
                   } else {
@@ -96,10 +96,10 @@ $(document).ready(() => {
                       $(".imgDiv").html("<img src='assets/Dog-Neutral.png'>");
                   }
               } else if (data[userId].Sidekicks[0].sidekickImage === "cat") {
-                  if (data[userId].Sidekicks[0].happinessPoints < 30) {
+                  if (data[userId].Sidekicks[0].happinessPoints < 3) {
                       $(".imgDiv").empty();
                       $(".imgDiv").html("<img src='assets/Cat-Alert.png'>");
-                  } else if (data[userId].Sidekicks[0].happinessPoints > 60) {
+                  } else if (data[userId].Sidekicks[0].happinessPoints > 6) {
                       $(".imgDiv").empty();
                       $(".imgDiv").html("<img src='assets/Cat-Happy.png'>");
                   } else {
