@@ -3,9 +3,9 @@
     {{#if category=food}}<img src="/assets/Bowl.png" alt="food" width="100px">{{/if}}
     {{#if category=exercise}}<img src="/assets/Ball.png" alt="exercise" width="50px">{{/if}}
     {{#if category=cleaning}}<img src="/assets/Shovel.png" alt="cleaning" width="50px">{{/if}}
-    {{activityName}}
+    <div class="task-listed">{{activityName}}</div>
     <button class="complete" data-id="{{id}}" data-category="{{category}}">Complete</button>
-    <button data-updatetask="{{id}}" data-category="{{category}}" class="update-activity">Update</button>
+    {{!-- <button data-updatetask="{{id}}" data-category="{{category}}" class="update-activity">Update</button> --}}
     <button data-deletetask="{{id}}" class="delete-activity">Delete</button>
 </li>
 
@@ -21,16 +21,6 @@
 <script src="/js/add-activity.js"></script>
 <script>
     
-    function getUserforActivity() {
-        $.get("/api/activity", function (data) {
-            var rowsToAdd = [];
-            for (var i = 0; i < data.length; i++) {
-                rowsToAdd.push(createAuthorRow(data[i]));
-            }
-            renderAuthorList(rowsToAdd);
-            nameInput.val("");
-        });
-    }
 
     //$(".delete-activity").on("click", function (event) {
         //event.preventDefault();
@@ -42,4 +32,4 @@
                 //location.reload();
             //});
     //});
-//</script>
+</script>

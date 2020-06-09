@@ -29,6 +29,9 @@
  function createActivity(activityObj) {
      $.post("/api/activity", activityObj).then(function(data){
          console.log("added activity", data);
-         $("#savenewtask").attr("data-dismiss", "modal");
+         $(".add-activity-footer").append("New Activity Saved!");
+         $( "#activity-adder" ).each(function(){
+            this.reset();
+        });
      });
  };
