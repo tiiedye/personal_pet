@@ -5,8 +5,9 @@
     {{!-- {{#if category=cleaning}}<img src="/assets/Shovel.png" alt="cleaning" width="50px">{{/if}} --}}
     <div class="task-listed">
         {{this.dataValues.activityName}}
-        <button class="complete btn-task" data-id="{{this.dataValues.id}}" data-value="{{this.dataValues.priority}}">Complete</button>
+        <button class="delete-activity" data-id="{{this.dataValues.id}}">Delete</button>
+        <button class="complete btn-task" data-id="{{this.dataValues.id}}"
+            data-value="{{this.dataValues.priority}}">Complete</button>
     </div>
     {{!-- <button data-updatetask="{{id}}" data-category="{{category}}" class="update-activity">Update</button> --}}
-    {{!-- <button data-deletetask="{{id}}" class="delete-activity">Delete</button> --}}
 </li>

@@ -35,43 +35,22 @@ function createActivity(activityObj) {
     // });
     location.reload();
   });
-}
+};
 
- //   function getUser(email) {
- //     $.get("/api/users", function(data) {});
- //   }
- //   async function createActivity (activityObj) {
- //     await $.get("/api/users", function(data) {
- //         users = data;
- //         indexNum = (users.length - 1)
- //     });
- //     $.post("/api/activity", {
- //         activityObj,
- //         UserId: users[indexNum].id
- //     }).then(function(data){
- //         console.log("added activity", data);
- //     });
- //   };
+$(".delete-activity").on("click", function(event) {
+  event.preventDefault();
+  let activityId = $(this).data("id");
+  console.log(activityId);
 
+  deleteActivity(activityId);
+});
 
-//  function deleteActivity(event) {
-//   event.stopPropagation();
-//   var id = $(this).data("id");
-//   $.ajax({
-//     method: "DELETE",
-//     url: "/api/activity/" + id
-//   }).then(function(data){
-        // console.log(data)
-// });
-// }
-
-//$(".delete-activity").on("click", function (event) {
-//event.preventDefault();
-//let taskid = $(this).data("deletetask");
-
-//$.delete("/api/activity/" + taskid)
-//.then(function () {
-//console.log("deleted activity id: " + taskid);
-//location.reload();
-//});
-//});
+function deleteActivity(id) {
+  $.ajax({
+    method: "DELETE",
+    url: "/api/activity/" + id
+  })
+    .then(function() {
+      location.reload();
+    });
+};
