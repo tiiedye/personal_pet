@@ -48,9 +48,11 @@ module.exports = function(app) {
         }];
         console.log("activies has stuff");
       }
-      console.log(activity);
+      // console.log(activity);
+      console.log("************************HELLO WORLD*******************")
+      console.log(sidekickGetResults[0].dataValues.Sidekicks[0].dataValues)
       res.render("members", {
-        sidekick: sidekickGetResults[0].dataValues,
+        sidekick: sidekickGetResults[0].dataValues.Sidekicks[0].dataValues,
         activity,
       });
     });
@@ -60,6 +62,9 @@ module.exports = function(app) {
 
 // app.get("/members", isAuthenticated, (req, res) => {
 //   db.User.findAll({
+//     where: {
+//       email: req.user.email
+//     },
 //     include: [db.Sidekick]
 // }).then(function(sidekickGetResults) {
 //   console.log(sidekickGetResults[0].dataValues);
