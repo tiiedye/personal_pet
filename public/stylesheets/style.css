@@ -50,6 +50,10 @@ body{
   float: right;
 }
 
+.line {
+  text-decoration: line-through;
+}
+
 a {
   color: #e84c3d;
 }
