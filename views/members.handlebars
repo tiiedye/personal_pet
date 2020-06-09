@@ -56,9 +56,8 @@
                 <button data-deletetask="{{id}}" class="delete-activity">Delete</button>
 
                     <ul>
-                        {{#each Activities}}
-                            {{!-- {{>activity-block}} --}}
-                            {{this.activityName}}
+                        {{#each activityObject.test}}
+                            {{>activity-block}}
                         {{/each}}
                         
                     </ul>
