@@ -49,13 +49,12 @@
 
             {{!-- Div to hold added activities --}}
             <div class="col-md-8 tasks-block">
-                Test Task
+                {{!-- Test Task --}}
 
-                <button class="complete" data-id="{{sidekick.id}}" data-category="{{category}}" data-value="50">Complete</button>
-	            <button data-updatetask="{{id}}" data-category="{{category}}" class="update-activity">Update</button>
-                <button data-deletetask="{{id}}" class="delete-activity">Delete</button>
+                {{!-- <button class="complete" data-id="{{sidekick.id}}" data-category="{{category}}" data-value="50">Complete</button> --}}
+	            {{!-- <button data-updatetask="{{id}}" data-category="{{category}}" class="update-activity">Update</button> --}}
+                {{!-- <button data-deletetask="{{id}}" class="delete-activity">Delete</button> --}}
 
-                high
                     <ul>
                         {{#each activityObject.test}}
                             {{>activity-block}}
