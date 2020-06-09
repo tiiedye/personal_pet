@@ -37,6 +37,34 @@ function createActivity(activityObj) {
   });
 }
 
+ //   function getUser(email) {
+ //     $.get("/api/users", function(data) {});
+ //   }
+ //   async function createActivity (activityObj) {
+ //     await $.get("/api/users", function(data) {
+ //         users = data;
+ //         indexNum = (users.length - 1)
+ //     });
+ //     $.post("/api/activity", {
+ //         activityObj,
+ //         UserId: users[indexNum].id
+ //     }).then(function(data){
+ //         console.log("added activity", data);
+ //     });
+ //   };
+
+
+//  function deleteActivity(event) {
+//   event.stopPropagation();
+//   var id = $(this).data("id");
+//   $.ajax({
+//     method: "DELETE",
+//     url: "/api/activity/" + id
+//   }).then(function(data){
+        // console.log(data)
+// });
+// }
+
 //$(".delete-activity").on("click", function (event) {
 //event.preventDefault();
 //let taskid = $(this).data("deletetask");
