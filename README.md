@@ -40,17 +40,17 @@ No contributors allowed.
 
 #### Sharlene May
 * Github username: sharlenemay
-* Email: anna.grace.conover@gmail.com
+* Email: sharleneminosa@gmail.com
 * GitHub Profile URL: https://github.com/sharlenemay
 
 #### Julia "Jace" Clements
 * Github username: tiiedye
-* Email: anna.grace.conover@gmail.com
+* Email: tiiedye@gmail.com
 * GitHub Profile URL: https://github.com/tiiedye
 
 #### Daniel
 * Github username: returntrip444
-* Email: anna.grace.conover@gmail.com
+* Email: danp777991@gmail.com
 * GitHub Profile URL: https://github.com/returntrip444
 
 
