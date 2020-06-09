@@ -7,9 +7,9 @@
     {{#eq this.dataValues.category "Cleaning"}}<img src="/assets/Shovel.png" alt="cleaning" width="50px">{{/eq}}
     <div class="task-listed">
         {{this.dataValues.activityName}}
-        <button class="delete-activity" data-id="{{this.dataValues.id}}">Delete</button>
         <button class="complete btn-task" data-id="{{this.dataValues.id}}"
             data-value="{{this.dataValues.priority}}">Complete</button>
+        <button class="delete-activity btn-task" data-id="{{this.dataValues.id}}">Delete</button>
     </div>
     {{!-- <button data-updatetask="{{id}}" data-category="{{category}}" class="update-activity">Update</button> --}}
 </li>
