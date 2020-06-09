@@ -1,8 +1,10 @@
+
+
 <li>
-    {{!-- {{#if this.dataValues.category="personal-grooming"}}<img src="/assets/Shampoo.png" alt="grooming" width="50px">{{/if}} --}}
-    {{!-- {{#if category=food}}<img src="/assets/Bowl.png" alt="food" width="100px">{{/if}} --}}
-    {{!-- {{#if category=exercise}}<img src="/assets/Ball.png" alt="exercise" width="50px">{{/if}} --}}
-    {{!-- {{#if category=cleaning}}<img src="/assets/Shovel.png" alt="cleaning" width="50px">{{/if}} --}}
+    {{#eq this.dataValues.category "Personal Grooming"}}<img src="/assets/Shampoo.png" alt="grooming" width="50px">{{/eq}}
+    {{#eq this.dataValues.category "Food"}} <img src="/assets/Bowl.png" alt="food" width="100px">{{/eq}}
+    {{#eq this.dataValues.category "Exercise"}}<img src="/assets/Ball.png" alt="exercise" width="50px">{{/eq}}
+    {{#eq this.dataValues.category "Cleaning"}}<img src="/assets/Shovel.png" alt="cleaning" width="50px">{{/eq}}
     <div class="task-listed">
         {{this.dataValues.activityName}}
         <button class="delete-activity" data-id="{{this.dataValues.id}}">Delete</button>
