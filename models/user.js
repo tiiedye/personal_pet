@@ -25,6 +25,9 @@ module.exports = function(sequelize, DataTypes) {
     });
     User.hasMany(models.Sidekick, {
       onDelete: "cascade"
+    });
+    User.hasMany(models.Graph, {
+      onDelete: "cascade"
     })
   };
 

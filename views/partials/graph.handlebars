@@ -1,3 +1,40 @@
+   <script>
+window.onload = function () {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	theme: "light2",
+	title:{
+		text: "Simple Line Chart"
+	},
+	axisY:{
+		includeZero: false
+	},
+	data: [{        
+		type: "line",
+      	indexLabelFontSize: 16,
+		dataPoints: [
+			{ y: 450 },
+			{ y: 414},
+			{ y: 520, indexLabel: "\u2191 highest",markerColor: "red", markerType: "triangle" },
+			{ y: 460 },
+			{ y: 450 },
+			{ y: 500 },
+			{ y: 480 },
+			{ y: 480 },
+			{ y: 410 , indexLabel: "\u2193 lowest",markerColor: "DarkSlateGrey", markerType: "cross" },
+			{ y: 500 },
+			{ y: 480 },
+			{ y: 510 }
+		]
+	}]
+});
+chart.render();
+
+}
+</script>
+   
+   
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#graphModal">
   View your progress
 </button>
@@ -14,7 +51,7 @@
         </button>
       </div>
       <div class="modal-body">
-        ...
+        <div id="chartContainer" style="height: 370px; width: 100%;"></div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -23,103 +60,7 @@
     </div>
   </div>
 </div>
-
-{{!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-
-        integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT"
-
-        crossorigin="anonymous">
-</script>
-
-
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-
-        crossorigin="anonymous"></script>
-
-<script src="members.js"></script>
-
-<script src="scale.js"></script> --}}
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
 
 
-<div id="activityGraph"></div>
-
-
-<script> --}}
-
-
-
-var myDate = [
-
-    [0, 20, 33, 10, 54, 90, 70, 84, 95, 100],
-
-    [0, 30, 23, 20, 44, 60, 10, 50, 10, 40]
-
-],
-
-$('.demo').activityChart({
-
-  chartData: myData
-
-});
-
-
-var myData = [
-    item1: {
-      value:'Value 1',
-
-      title:'Title 1'
-    },
-
-    item2: {
-
-      value:'Value 2',
-
-      title:'Title 2'
-
-    },
-
-    item3: {
-
-      value:'Value 3',
-
-      title:'Title 3'
-
-    },
-
-
-
-
-$("#chart").linechart({
-
-  data: items,
-
-  line:true 
-
-});
- Set the height/width of the line chart.
-
-
-
-$("#chart").linechart({
-
-  width: 30,
-
-  height: 10,
-
-});
-
-
-
-$("#chart").linechart({
-
-  boxSize: 16,
-
-});
-
-</script>
-
-
-<!-- Modal -->
