@@ -11,7 +11,7 @@ module.exports = function(app) {
     if (req.user) {
       res.redirect("/members");
     }
-    res.render("home")
+    res.render("home");
   });
 
   app.get("/signup", (req, res) => {
@@ -19,7 +19,7 @@ module.exports = function(app) {
     if (req.user) {
       res.redirect("/members");
     }
-    res.render("signup")
+    res.render("signup");
   });
 
   // Here we've add our isAuthenticated middleware to this route.
@@ -29,10 +29,40 @@ module.exports = function(app) {
       where: {
         email: req.user.email
       },
-      include: [db.Sidekick]
-  }).then(function(sidekickGetResults) {
-    console.log(sidekickGetResults[0].dataValues);
-    res.render("members", sidekickGetResults[0].dataValues);
-  })
+      include: [db.Sidekick, db.Activity],
+    }).then(function(sidekickGetResults) {
+      console.log(sidekickGetResults);
+      // console.log("sidekickGetResults[0].dataValues.Activities[0].activityName************");
+      // console.log(sidekickGetResults[0].dataValues.Activities.activityName);
+      // console.log("This underneath is .Activities.dataValues", sidekickGetResults[0].Activities.dataValues);
+      let activity;
+      // console.log(sidekickGetResults[0].Activities[0].dataValues)
+      if (sidekickGetResults[0].Activities[0] === undefined) {
+        console.log("there are no activities");
+        activity = 0;
+      } else {
+        console.log("********this***********")
+        console.log(sidekickGetResults[0].dataValues.Activities[0].activityName);
+        activity = [{
+          activityName: sidekickGetResults[0].dataValues.Activities[0].activityName
+        }];
+        console.log("activies has stuff");
+      }
+      console.log(activity);
+      res.render("members", {
+        sidekick: sidekickGetResults[0].dataValues,
+        activity,
+      });
+    });
+
   });
 };
+
+// app.get("/members", isAuthenticated, (req, res) => {
+//   db.User.findAll({
+//     include: [db.Sidekick]
+// }).then(function(sidekickGetResults) {
+//   console.log(sidekickGetResults[0].dataValues);
+//   res.render("members", sidekickGetResults[0].dataValues);
+// })
+// });

@@ -7,17 +7,13 @@ module.exports = function(app) {
         }).then(function(activityGetResult) {
             res.json(activityGetResult)
         })
-    })
+    });
 
     app.post("/api/activity", function(req,res) {
         db.Activity.create(req.body).then(function(activityCreateResult){
             res.json(activityCreateResult)
-        })
-    })
-
-    app.get("/activity", function(req, res) {
-        res.render("Activity", { activities: Activity });
-      });
+        });
+    });
 
     app.delete("/api/activity/:id", function(req,res) {
         db.Activity.destroy({
@@ -26,8 +22,8 @@ module.exports = function(app) {
             }
         }).then(function(activityDeleteResult) {
             res.json(activityDeleteResult)
-        })
-    })
+        });
+    });
 
     app.put("/api/activity/:id", function(req, res) {
         db.Activity.update({
@@ -36,6 +32,6 @@ module.exports = function(app) {
             }
         }).then(function(activityUpdateResult) {
             res.json(activityUpdateResult);
-        })
-    })
-}
+        });
+    });
+};
