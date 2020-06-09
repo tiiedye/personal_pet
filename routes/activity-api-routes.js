@@ -9,16 +9,6 @@ module.exports = function(app) {
         })
     });
 
-    app.get("/api/activity/:id", function(req, res) {
-        db.User.findAll({
-            where: {
-                id: req.params.id
-            }
-        }).then(function(userActivities){
-            res.json(userActivities)
-        });
-    });
-
     app.post("/api/activity", function(req,res) {
         db.Activity.create(req.body).then(function(activityCreateResult){
             res.json(activityCreateResult)
