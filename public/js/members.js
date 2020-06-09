@@ -77,14 +77,11 @@ $(document).ready(() => {
             console.log((parseInt(userId) + 1))
         }).then(
           $.get("/api/sidekick", function(data) {
-<<<<<<< HEAD
             
       
               //gets userId so that activities can be user specific
             //   thisId = data[0].Sidekicks[0].UserId
-=======
             // console.log(data);
->>>>>>> c47be8aa6a6b85d0b5420e21d2948e48e50dc73b
       
               if (data[userId].Sidekicks[0].sidekickImage === "dog") {
                   if (data[userId].Sidekicks[0].happinessPoints < 30) {
@@ -146,10 +143,4 @@ $(document).ready(() => {
                   });
           }));
       });
-<<<<<<< HEAD
-  
-    
-  });
-=======
 });
->>>>>>> c47be8aa6a6b85d0b5420e21d2948e48e50dc73b
