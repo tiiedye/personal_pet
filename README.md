@@ -29,7 +29,7 @@ MIT
 No contributors allowed.
 ### Questions
 * GitHub repository URL: https://github.com/sharlenemay/personal_pet
-* Heroku deployed URL: https://mysterious-oasis-64006.herokuapp.com/
+* Heroku deployed URL: https://personal-pet.herokuapp.com/
 
 ### Developers
 
@@ -38,7 +38,7 @@ No contributors allowed.
 * Email: anna.grace.conover@gmail.com
 * GitHub Profile URL: https://github.com/AnnaxGrace
 
-#### Sharlene May
+#### Sharlene May Minosa
 * Github username: sharlenemay
 * Email: sharleneminosa@gmail.com
 * GitHub Profile URL: https://github.com/sharlenemay
@@ -48,7 +48,7 @@ No contributors allowed.
 * Email: tiiedye@gmail.com
 * GitHub Profile URL: https://github.com/tiiedye
 
-#### Daniel
+#### Daniel Palumbo
 * Github username: returntrip444
 * Email: danp777991@gmail.com
 * GitHub Profile URL: https://github.com/returntrip444
