@@ -54,6 +54,10 @@ body{
   text-decoration: line-through;
 }
 
+.tasks-block {
+  margin-left: 100px;
+}
+
 a {
   color: #e84c3d;
 }
