@@ -20,7 +20,7 @@ $(".graphProgress").on("click", function() {
     }
     if (coords.length < 3) {
       $("#chartContainer").text(
-        "Currently not enough data to show progress. Remember to choose « Start New Day » at the beginning of each session to save your progress!"
+        "Keep up the good work! Remember to choose « Start New Day » at each log-in to save your progress!"
       );
     } else {
       var chart = new CanvasJS.Chart("chartContainer", {
