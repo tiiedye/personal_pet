@@ -31,8 +31,9 @@ $(document).ready(() => {
           event.preventDefault();
           var happinessValue = $(this).attr("data-value");
           var taskId = $(this).attr("data-id");
-          console.log(`this is the id ${taskId}`)
-          
+          console.log(`this is the id ${taskId}`);
+          $(this).addClass("line");
+
           $.get("/api/user_data", function(result) {
             userId = (parseInt(result.id) - 1)
             sidekickId = parseInt(result.id);
@@ -48,11 +49,10 @@ $(document).ready(() => {
                   }).then(function() {
                       updateImg();
                       updateProgress();
-                      console.log(data[userId].Sidekicks);
                   });
           }));
       });
-  
+
       function updateProgress() {
         $.get("/api/user_data", function(result) {
             userId = (parseInt(result.id) - 1)

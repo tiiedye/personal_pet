@@ -1,18 +1,17 @@
 <script src="js/graph.js"></script>
 
-   
-   
-    <button type="button" class="btn btn-primary graphProgress" data-toggle="modal" data-target="#graphModal">
-  View your progress
+<button type="button" class="btn btn-primary graphProgress" data-toggle="modal" data-target="#graphModal">
+  View Activity History
 </button>
 
 {{!-- <link rel="stylesheet" href="scale.css"> --}}
 
-<div class="modal fade" id="graphModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="graphModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Daily Progress</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -21,13 +20,10 @@
         <div id="chartContainer" style="height: 370px; width: 280px;"></div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        {{!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> --}}
+        {{!-- <button type="button" class="btn btn-primary">Save changes</button> --}}
       </div>
     </div>
   </div>
 </div>
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-
-
-
