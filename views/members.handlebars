@@ -40,10 +40,8 @@
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
                         Add Activity
                     </button>
-                    {{!-- <br> --}}
-                    {{!-- <button class="btn">See History</button> --}}
-                    {{!-- <br> --}}
-                    {{> sleep-wake sleep=false}}
+
+                    {{> sleep-wake}}
                 </p>
             </div>
 
@@ -54,8 +52,6 @@
                         {{#each activityObject.test}}
                             {{>activity-block}}
                         {{/each}}
- 
-                        
                     </ul>
 
             </div>
@@ -64,6 +60,10 @@
 </div>
 
 <p></p>
+
+
+{{!-- Add Activity Modal --}}
+{{> add-activity-modal}}
 
 <footer class="footer">
 
@@ -76,9 +76,6 @@
     </p>
 
 </footer>
-
-{{!-- Add Activity Modal --}}
-{{> add-activity-modal}}
 
 <script
   src="https://code.jquery.com/jquery-3.5.1.min.js"
@@ -94,39 +91,4 @@
 <script src="/js/graph.js"></script>
 <script src="/js/modal.js"></script>
 <script src="/js/add-activity.js"></script>
-{{!-- <script src="/js/homepage.js"></script> --}}
-
-{{!-- <script>
-    //$(document).ready(function () {
-        //const membersAvatar = require("/js/members.js");
-        //showMemberAvatar();
-        //let activities = [];
-        //let category = $("#selectCategory option:selected").text();
-        //let difficulty = $(".form-check-input:checked").val();
-        //const activityname = $("#addActivity");
-
-        //$("#savenewtask").on("click", function () {
-            //const activityData = {
-                //activityName: activityname.val().trim(),
-              //  priority: difficulty,
-              //  category: category
-            //}
-
-            //console.log("********",activityData);
-
-           // createActivity(activityData.activityName, activityData.priority, activityData.category, activityData)
-       // });
-
-        //function createActivity(activityName, priority, category, activityData){
-
-
-            //$.post("/api/activity", function(data){
-            //    alert("success");
-            //}).then(function () {
-            //    console.log("new activity added: " + activityData);
-            //});
-       // }
-
-    //})
-</script> --}}
 
