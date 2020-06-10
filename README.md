@@ -29,7 +29,7 @@ MIT
 No contributors allowed.
 ### Questions
 * GitHub repository URL: https://github.com/sharlenemay/personal_pet
-* Heroku deployed URL: https://mysterious-oasis-64006.herokuapp.com/
+* Heroku deployed URL: http://personal-pet.herokuapp.com/
 
 ### Developers
 
