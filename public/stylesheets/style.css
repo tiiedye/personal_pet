@@ -179,3 +179,8 @@ ul {
 .task-listed {
   text-align: left;
 }
+
+.canvasjs-chart-canvas {
+  width: 482px !important;
+}
+
