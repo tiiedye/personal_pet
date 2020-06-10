@@ -180,7 +180,7 @@ ul {
   text-align: left;
 }
 
-.chartContainer {
-
-  width: 100px!important;
+.canvasjs-chart-canvas {
+  width: 482px !important;
 }
+

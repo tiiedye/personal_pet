@@ -1,7 +1,7 @@
 {
     "development": {
         "username": "root",
-        "password": null,
+        "password": "Ditc9898#",
         "database": "selfcare_sidekick",
         "host": "127.0.0.1",
         "dialect": "mysql",
