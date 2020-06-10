@@ -171,3 +171,8 @@ ul {
 .task-listed {
   text-align: left;
 }
+
+.chartContainer {
+
+  width: 100px!important;
+}
