@@ -13,7 +13,7 @@ $(".graphProgress").on("click", function() {
   // var taskId = $(this).attr("data-id");
 
   $.get("/api/graph").then(function(result) {
-    console.log(result);
+    console.log(result[0].Graphs);
     var coords = [];
     for (let i = 0; i < result[0].Graphs.length; i++) {
       coords.push({ y: result[0].Graphs[i].happinessPoints });
