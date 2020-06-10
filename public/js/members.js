@@ -32,7 +32,7 @@ $(document).ready(() => {
           var happinessValue = $(this).attr("data-value");
           var taskId = $(this).attr("data-id");
           console.log(`this is the id ${taskId}`);
-          $(this).addClass("line");
+        //   $(this).addClass("line");
 
           $.get("/api/user_data", function(result) {
             userId = (parseInt(result.id) - 1)
