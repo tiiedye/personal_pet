@@ -48,7 +48,7 @@ No contributors allowed.
 * Email: tiiedye@gmail.com
 * GitHub Profile URL: https://github.com/tiiedye
 
-#### Daniel
+#### Daniel Palumbo
 * Github username: returntrip444
 * Email: danp777991@gmail.com
 * GitHub Profile URL: https://github.com/returntrip444
