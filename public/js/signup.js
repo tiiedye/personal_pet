@@ -58,7 +58,7 @@ $(document).ready(function () {
       
      
       createUserandSidekick(userData.email, userData.password, sidekickData.name, sidekickData.image);
-      alert("Welcome " + sidekickData.name + "!");
+      
   });
 
 //This function creates a new user, and then gets all of the users. 
@@ -82,6 +82,7 @@ $(document).ready(function () {
           UserId: users[indexNum].id
       }).then(function () {
                   console.log("added sidekick");
+                  alert("Welcome " + sidekickData.name + "!");
                   window.location.replace("/members");
           });
   }
