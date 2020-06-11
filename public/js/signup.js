@@ -24,6 +24,22 @@ $(document).ready(function () {
           password: passwordInput.val().trim()
       };
 
+      console.log(userData.email);
+      if (userData.email) {
+        $.get("/api/users", {
+        }).then(result => {
+          console.log(result)
+          for (i = 0; i < result.length; i++ ) {
+            console.log(userData.email)
+            console.log(result[i].email)
+            if (userData.email === result[i].email) {
+            alert("This email already has an account! Please log-in.")
+              return;
+            }
+          }
+        });
+      };
+
       if (!userData.email || !userData.password) {
           alert("Please enter a valid username and password.")
           return;
@@ -42,7 +58,6 @@ $(document).ready(function () {
       
      
       createUserandSidekick(userData.email, userData.password, sidekickData.name, sidekickData.image);
-      // emptyValues();
       alert("Welcome " + sidekickData.name + "!");
   });
 
@@ -67,16 +82,9 @@ $(document).ready(function () {
           UserId: users[indexNum].id
       }).then(function () {
                   console.log("added sidekick");
-                  // emptyValues();
                   window.location.replace("/members");
           });
   }
 
 });
 
-//This empties all of the form's values
-function emptyValues() {
-  emailInput.val("");
-  passwordInput.val("");
-  sidekick.val("");
-}
