@@ -1,9 +1,9 @@
 {
     "development": {
         "username": "root",
-        "password": null,
+        "password": "cogsworth",
         "database": "selfcare_sidekick",
-        "host": "127.0.0.1",
+        "host": "localhost",
         "dialect": "mysql",
         "migrationStorageTableName": "sequelize_meta"
     },

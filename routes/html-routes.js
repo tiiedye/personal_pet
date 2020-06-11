@@ -60,26 +60,3 @@ module.exports = function(app) {
   });
 };
 
-// app.get("/members", isAuthenticated, (req, res) => {
-//   db.User.findAll({
-//     where: {
-//       email: req.user.email
-//     },
-//     include: [db.Sidekick]
-// }).then(function(sidekickGetResults) {
-//   console.log(sidekickGetResults[0].dataValues);
-//   res.render("members", sidekickGetResults[0].dataValues);
-// })
-// });
-
-// else {
-//   console.log("********this***********")
-//   console.log(sidekickGetResults[0].dataValues.Activities[0].activityName);
-//   for (i = 0; i < sidekickGetResults.length; i++){
-//     activity = {
-//       activityName: sidekickGetResults[i].dataValues.Activities[i].activityName
-//     };
-//   }
-//   console.log("activities has stuff");
-//   console.log(activity);
-// }

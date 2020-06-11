@@ -4,9 +4,7 @@ const activityname = $("#addActivity");
 let thisId;
 //  gets user_data to define thisId
 $.get("/api/user_data", function(res) {
-  console.log(res);
   thisId = res.id;
-  console.log("thisId***", thisId);
 });
 
 //  on click savenewtask, activity will be pushed to Activity table db

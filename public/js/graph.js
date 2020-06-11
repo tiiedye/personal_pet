@@ -20,7 +20,7 @@ $(".graphProgress").on("click", function() {
     }
     if (coords.length < 3) {
       $("#chartContainer").text(
-        "Keep up the good work! Remember to choose « Start New Day » at each log-in to save your progress!"
+        "Keep up the good work! Remember to choose « Start New Day » at each log-in to save your progress! You'll start seeing your progress after day 3!"
       );
     } else {
       var chart = new CanvasJS.Chart("chartContainer", {
