@@ -34,6 +34,7 @@ $(document).ready(function () {
             console.log(result[i].email)
             if (userData.email === result[i].email) {
             alert("This email already has an account! Please log-in.")
+            window.location.replace("/home");
               return;
             }
           }
