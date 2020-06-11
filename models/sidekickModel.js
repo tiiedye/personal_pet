@@ -22,7 +22,7 @@ module.exports = function(sequelize, DataTypes) {
         
 
     });
-
+//This associates the sidekick table to the user table
     Sidekick.associate = function(models) {
         Sidekick.belongsTo(models.User, {
             foreignKey: {
