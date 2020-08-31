@@ -29,7 +29,7 @@ MIT
 No contributors allowed.
 ### Questions
 * GitHub repository URL: https://github.com/sharlenemay/personal_pet
-* Heroku deployed URL: https://personal-pet.herokuapp.com/
+* Heroku deployed URL: https://selfcare-sidekick.herokuapp.com/
 
 ### Developers
 
